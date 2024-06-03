@@ -1,13 +1,5 @@
-/**
- * Template Name: iPortfolio
- * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
- * Updated: Mar 17 2024 with Bootstrap v5.3.3
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 (function () {
-	"use strict";
+	("use strict");
 
 	/**
 	 * Easy selector helper function
@@ -44,6 +36,7 @@
 
 	/**
 	 * Navbar links active state on scroll
+	 *
 	 */
 	let navbarlinks = select("#navbar .scrollto", true);
 	const navbarlinksActive = () => {
@@ -76,6 +69,24 @@
 		});
 	};
 
+	/*
+	Easy event listener function
+	*/
+	// const on = (type, el, listener, all = false) => {
+	// 	let selectEl = select(el, all);
+	// 	if (selectEl) {
+	// 		if (all) {
+	// 			selectEl.forEach((e) => e.addEventListener(type, listener));
+	// 		}
+	// 	}
+	// }
+
+	/*
+Easy on scroll event listener
+*/
+	// const onscroll = (el, listener) => {
+	// 	el.addEventListener("scroll", listener);
+	// }
 	/**
 	 * Back to top button
 	 */
