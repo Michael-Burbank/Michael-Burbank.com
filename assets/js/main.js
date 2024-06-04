@@ -113,7 +113,7 @@ Easy on scroll event listener
 	});
 
 	/**
-	 * Scrool with ofset on links with a class name .scrollto
+	 * Scroll with offset on links with a class name .scrollto
 	 */
 	on(
 		"click",
@@ -134,9 +134,8 @@ Easy on scroll event listener
 		},
 		true
 	);
-
 	/**
-	 * Scroll with ofset on page load with hash links in the url
+	 * Scroll with offset on page load with hash links in the url
 	 */
 	window.addEventListener("load", () => {
 		if (window.location.hash) {
