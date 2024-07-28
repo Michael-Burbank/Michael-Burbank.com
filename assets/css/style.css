@@ -237,9 +237,10 @@ h6 {
 #hero {
 	width: 100%;
 	height: 100vh;
-	/* background: url("../img/bg-hero_copy.jpg") center center; */
-	background-color: black;
-	background-size: cover;
+	font-style:italic;
+	/* background: linear-gradient(170deg, #000000, #870cc5); */
+	background: linear-gradient(170deg, #000000, #2e0443);
+	
 }
 /* #hero {
 	width: 100%;
@@ -313,6 +314,8 @@ h6 {
 section {
 	padding: 60px 0;
 	overflow: hidden;
+	/* background: linear-gradient(170deg, #5a5959, #e8e3ea); */
+	background: linear-gradient(290deg, #595757, #c3b6c7);
 }
 
 .section-bg {
@@ -352,6 +355,7 @@ section {
 --------------------------------------------------------------*/
 #aboutImg {
 	width: 70%;
+	/* margin-right: 4px; */
 }
 
 .about .content h3 {
@@ -391,11 +395,13 @@ section {
 --------------------------------------------------------------*/
 .facts {
 	padding-bottom: 30px;
+	
 }
 
 .facts .count-box {
 	padding: 30px;
 	width: 100%;
+	
 }
 
 .facts .count-box i {
@@ -438,13 +444,17 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
+.skills{
+	background: linear-gradient(290deg, #595757, #c3b6c7);
+}
 .skills .progress {
 	height: 60px;
 	display: block;
 	background: none;
 	border-radius: 0;
+	
 }
 
 .skills .progress .skill {
@@ -538,6 +548,9 @@ section {
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
+.portfolio{
+	background: linear-gradient(290deg, #595757, #c3b6c7);
+}
 .portfolio .portfolio-item {
 	margin-bottom: 30px;
 }
@@ -710,6 +723,9 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+.services{
+	background: linear-gradient(290deg, #595757, #c3b6c7);
+}
 .services .icon-box {
 	margin-bottom: 20px;
 }
@@ -765,6 +781,9 @@ section {
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
+.testimonials{
+	background: linear-gradient(290deg, #595757, #c3b6c7);
+}
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
 	overflow: hidden;
@@ -1118,3 +1137,7 @@ section {
 		padding-right: 20px 15px;
 	}
 }
+
+/* .about, .skills, .resume, .portfolio, .testimonials, .contact{
+	background: linear-gradient(170deg, #595757, #c3b6c7);
+} */
