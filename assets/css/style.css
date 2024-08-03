@@ -32,6 +32,7 @@ h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+
 .back-to-top {
 	position: fixed;
 	visibility: hidden;
@@ -39,7 +40,7 @@ h6 {
 	right: 15px;
 	bottom: 15px;
 	z-index: 996;
-	background: #149ddd;
+	background: #4104a3;
 	width: 40px;
 	height: 40px;
 	border-radius: 50px;
@@ -53,7 +54,7 @@ h6 {
 }
 
 .back-to-top:hover {
-	background: #2eafec;
+	background: #f7f7f7;
 	color: #fff;
 }
 
@@ -75,7 +76,7 @@ h6 {
 	z-index: 9997;
 	transition: all 0.5s;
 	padding: 0 15px;
-	background: #040b14;
+	background-color: #040b14;
 	overflow-y: auto;
 }
 
@@ -207,12 +208,12 @@ h6 {
 	right: 15px;
 	top: 15px;
 	z-index: 9998;
-	border: 0;
+	/* border: 0; */
 	font-size: 24px;
 	transition: all 0.4s;
 	outline: none !important;
-	background-color: #149ddd;
-	color: #fff;
+	background-color: #4104a3;
+	color: #f7f7f7;
 	width: 40px;
 	height: 40px;
 	display: inline-flex;
@@ -220,7 +221,11 @@ h6 {
 	justify-content: center;
 	line-height: 0;
 	border-radius: 50px;
+	border: 3px solid white;
 	cursor: pointer;
+}
+.mobile-nav-toggle:hover{
+	background-color: #f7f7f7;
 }
 
 .mobile-nav-active {
@@ -661,9 +666,9 @@ section {
 	padding-top: 40px;
 }
 
-.portfolio-details .portfolio-details-slider img {
-	/* width: 100%; */
-}
+/* .portfolio-details .portfolio-details-slider img {
+	width: 100%;
+} */
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
 	margin-top: 20px;
