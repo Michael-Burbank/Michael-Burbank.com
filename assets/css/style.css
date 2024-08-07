@@ -319,9 +319,13 @@ h6 {
 section {
 	padding: 60px 0;
 	overflow: hidden;
-	/* background: linear-gradient(170deg, #5a5959, #e8e3ea); */
-	/* background: linear-gradient(290deg, #595757, #c3b6c7); */
-	background: linear-gradient(290deg, #383636, #8a818d); 
+	/* background: linear-gradient(290deg, #383636, #8a818d);  */
+	/* background: linear-gradient(270deg, #4e4c4c, #3603479b);  */
+	/* background: linear-gradient(to top left, #4e4c4c, #320243bb); */
+	/* background: linear-gradient(to top left, #595757, #c3b6c7); */
+	background: linear-gradient(to bottom left, #595757, #9468a197); 
+	
+	background: linear-gradient(to bottom left, #43454b, #2116249d); 
 }
 
 .section-bg {
@@ -457,7 +461,8 @@ section {
 # Skills
 --------------------------------------------------------------*/
 .skills{
-	background: linear-gradient(290deg, #595757, #c3b6c7);
+	/* background: linear-gradient(to bottom left, #595757, #9468a195); */
+	background: linear-gradient(to bottom left, #595757, #9468a1d9);
 }
 .skills .progress {
 	height: 60px;
