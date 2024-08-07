@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-	color: #37b3ed;
+	color: #7b31f2;
 	text-decoration: none;
 }
 
@@ -54,7 +54,7 @@ h6 {
 }
 
 .back-to-top:hover {
-	background: #f7f7f7;
+	background: #7b31f2;
 	color: #fff;
 }
 
@@ -119,7 +119,7 @@ h6 {
 }
 
 #header .profile .social-links a:hover {
-	background: #149ddd;
+	background: #7b31f2;
 	color: #fff;
 	text-decoration: none;
 }
@@ -199,7 +199,7 @@ h6 {
 .nav-menu .active i,
 .nav-menu .active:focus i,
 .nav-menu li:hover > a i {
-	color: #149ddd;
+	color: #7b31f2;
 }
 
 /* Mobile Navigation */
@@ -291,7 +291,7 @@ h6 {
 	color: #fff;
 	padding-bottom: 4px;
 	letter-spacing: 1px;
-	border-bottom: 3px solid #149ddd;
+	border-bottom: 3px solid #7b31f2;
 }
 
 @media (min-width: 1024px) {
@@ -417,7 +417,7 @@ section {
 .facts .count-box i {
 	display: block;
 	font-size: 44px;
-	color: #149ddd;
+	color: #7b31f2;
 	float: left;
 	line-height: 0;
 }
