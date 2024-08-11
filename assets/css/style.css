@@ -8,6 +8,7 @@ html {
 body {
 	font-family: "Open Sans", sans-serif;
 	color: #272829;
+	
 }
 
 a {
@@ -45,6 +46,7 @@ h6 {
 	height: 40px;
 	border-radius: 50px;
 	transition: all 0.4s;
+	border: 1px solid white;
 }
 
 .back-to-top i {
@@ -116,6 +118,7 @@ h6 {
 	width: 36px;
 	height: 36px;
 	transition: 0.3s;
+	border: 1px solid #7b31f2;
 }
 
 #header .profile .social-links a:hover {
@@ -200,6 +203,7 @@ h6 {
 .nav-menu .active:focus i,
 .nav-menu li:hover > a i {
 	color: #7b31f2;
+	
 }
 
 /* Mobile Navigation */
@@ -212,7 +216,7 @@ h6 {
 	font-size: 24px;
 	transition: all 0.4s;
 	outline: none !important;
-	background-color: #4104a3;
+	background: #4104a3;
 	color: #f7f7f7;
 	width: 40px;
 	height: 40px;
@@ -221,11 +225,11 @@ h6 {
 	justify-content: center;
 	line-height: 0;
 	border-radius: 50px;
-	border: 3px solid white;
+	border: 1px solid white;
 	cursor: pointer;
 }
 .mobile-nav-toggle:hover{
-	background-color: #f7f7f7;
+	background: #7b31f2;
 }
 
 .mobile-nav-active {
@@ -323,9 +327,11 @@ section {
 	/* background: linear-gradient(270deg, #4e4c4c, #3603479b);  */
 	/* background: linear-gradient(to top left, #4e4c4c, #320243bb); */
 	/* background: linear-gradient(to top left, #595757, #c3b6c7); */
-	background: linear-gradient(to bottom left, #595757, #9468a197); 
+	/* background: linear-gradient(to bottom left, #43454b, #2116249d);  */
+	/* background: linear-gradient(to top left, #595757, #72119070);  */
+	background: linear-gradient(170deg, #00000085, #2e0443a3);
 	
-	background: linear-gradient(to bottom left, #43454b, #2116249d); 
+	
 }
 
 .section-bg {
@@ -342,7 +348,7 @@ section {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	position: relative;
-	color: #173b6c;
+	color: #561fae
 }
 
 .section-title h2::after {
@@ -372,7 +378,7 @@ section {
 .about .content h3 {
 	font-weight: 700;
 	font-size: 26px;
-	color: #173b6c;
+	color: #490dab;
 	/* margin-right: 30px; */
 }
 
@@ -396,7 +402,7 @@ section {
 	font-size: 20px;
 	margin-right: 5px;
 	/* color: linear-gradient(170deg, #000000, #2e0443); */
-	color: #4d2462;
+	color: #490dab;
 	line-height: 0;
 }
 
@@ -496,7 +502,7 @@ section {
 	width: 1px;
 	height: 10px;
 	transition: 0.9s;
-	background-color: #149ddd;
+	background-color: #490dab;
 }
 
 /*--------------------------------------------------------------
@@ -507,7 +513,7 @@ section {
 	font-weight: 700;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	color: #050d18;
+	color: #490dab;
 }
 
 .resume .resume-item {
@@ -529,7 +535,8 @@ section {
 
 .resume .resume-item h5 {
 	font-size: 16px;
-	background: #e4edf9;
+	background: linear-gradient( #918e8ea2, #7211903a);
+	border: 1px solid #000000;
 	padding: 5px 15px;
 	display: inline-block;
 	font-weight: 600;
@@ -894,7 +901,7 @@ section {
 .contact {
 	padding-bottom: 20px;
 	font-style:italic;
-	background: linear-gradient(170deg, #000000, #2e0443);
+	background: linear-gradient(170deg, #00000085, #2e0443);
 }
 
 .contact .info {
@@ -971,13 +978,17 @@ section {
 .contact label{
 	color: #fff;
 }
+.section-title p{
+	color: #fff;
+	
+}
 .contact input, .contact .form-control {
-	background: #040b14;
+	background: #040b1451;
 }
 .contact .php-email-form {
 	width: 100%;
 	padding: 30px;
-	background: #040b14;
+	background: #040b1451;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -1062,8 +1073,8 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-	background: #149ddd;
-	border: 0;
+	background: #040b1451;
+	border: 1px solid white;
 	padding: 10px 24px;
 	color: #fff;
 	transition: 0.4s;
@@ -1071,7 +1082,9 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-	background: #37b3ed;
+	background: linear-gradient( #918e8ea2, #7211903a);
+	border: 3px solid white;
+	
 }
 
 @keyframes animate-loading {
@@ -1134,7 +1147,7 @@ section {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-#footer {
+/* #footer {
 	padding: 15px;
 	color: #f4f6fd;
 	font-size: 14px;
@@ -1148,7 +1161,7 @@ section {
 
 #footer .copyright {
 	text-align: center;
-}
+} */
 
 #footer .credits {
 	padding-top: 5px;
