@@ -519,7 +519,7 @@ section {
 .resume .resume-item {
 	padding: 0 0 20px 20px;
 	margin-top: -2px;
-	border-left: 2px solid #1f5297;
+	border-left: 2px solid #490dab;
 	position: relative;
 }
 
@@ -564,7 +564,7 @@ section {
 	left: -9px;
 	top: 0;
 	background: #fff;
-	border: 2px solid #1f5297;
+	border: 2px solid #490dab;
 }
 
 /*--------------------------------------------------------------
@@ -984,6 +984,7 @@ section {
 }
 .contact input, .contact .form-control {
 	background: #040b1451;
+	color: #fff;
 }
 .contact .php-email-form {
 	width: 100%;
@@ -1150,7 +1151,7 @@ section {
 #footer {
 	padding: 15px;
 	color: #f4f6fd;
-	font-size: 14px;
+	font-size: 8px;
 	position: fixed;
 	left: 0;
 	bottom: 0;
