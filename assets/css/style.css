@@ -1147,7 +1147,7 @@ section {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-/* #footer {
+#footer {
 	padding: 15px;
 	color: #f4f6fd;
 	font-size: 14px;
@@ -1161,7 +1161,7 @@ section {
 
 #footer .copyright {
 	text-align: center;
-} */
+} 
 
 #footer .credits {
 	padding-top: 5px;
