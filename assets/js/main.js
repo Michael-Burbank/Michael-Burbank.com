@@ -284,4 +284,20 @@ Easy on scroll event listener
 	 * Initiate Pure Counter
 	 */
 	new PureCounter();
+
+	/**
+	 * Hero type effect
+	 */
+	const type = select(".type");
+	if(type){
+		let type_strings = type.getAttribute("data-type-items");
+		type_strings = type_strings.split(",");
+		new Typed(".type", {
+			strings: type_strings,
+			loop: true,
+			typeSpeed: 100,
+			backSpeed: 50,
+			backDelay: 2000,
+		});
+	}
 })();
