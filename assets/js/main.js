@@ -286,7 +286,7 @@ Easy on scroll event listener
 	new PureCounter();
 
 	/**
-	 * Hero type effect
+	 * End-Hero type effect
 	 */
 	const type = select(".type");
 	if(type){
