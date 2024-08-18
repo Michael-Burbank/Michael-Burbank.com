@@ -987,7 +987,9 @@ section {
 	color: #fff;
 }
 .contact .php-email-form {
-	width: 100%;
+	width: 70%;
+	/* margin-left: 100px;
+	margin-right: 100px; */
 	padding: 30px;
 	background: #040b1451;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
