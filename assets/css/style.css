@@ -982,8 +982,6 @@ section {
 .contact .php-email-form .form-group {
 	padding-bottom: 8px;
 	margin-left: auto;
-	
-	
 }
 
 .contact .php-email-form .validate {
@@ -992,7 +990,6 @@ section {
 	margin: 0 0 15px 0;
 	font-weight: 400;
 	font-size: 13px;
-	
 }
 
 .contact .php-email-form .error-message {
@@ -1092,9 +1089,7 @@ section {
 	width: 100%;
 	height: 100vh;
 	font-style:italic;
-	/* background: linear-gradient(170deg, #000000, #870cc5); */
 	background: linear-gradient(170deg, #000000, #2e0443);
-	
 }
 
 #end-hero:before {
