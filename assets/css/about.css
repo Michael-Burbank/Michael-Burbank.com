@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+#aboutImg {
+	width: 70%;
+	/* margin-right: 4px; */
+}
+
+.about .content h3 {
+	font-weight: 700;
+	font-size: 26px;
+	color: #490dab;
+	/* margin-right: 30px; */
+}
+
+.about .content ul {
+	list-style: none;
+	padding: 0;
+}
+
+.about .content ul li {
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.about .content ul strong {
+	margin-right: 10px;
+}
+
+.about .content ul i {
+	font-size: 20px;
+	margin-right: 5px;
+	color: #490dab;
+	line-height: 0;
+}
+
+.about .content p:last-child {
+	margin-bottom: 0;
+}
