@@ -25,6 +25,7 @@ section {
 }
 
 .section-title h2::after {
+	
 	content: "";
 	position: absolute;
 	display: block;
