@@ -51,12 +51,12 @@
 .resume .resume-item::before {
 	content: "";
 	position: absolute;
-	width: 16px;
-	height: 16px;
+	width: 13px;
+	height: 13px;
 	border-radius: 50px;
 	left: -9px;
 	top: 0;
-	background: #fff;
+	background: #4104a3;
 	border: 2px solid #490dab;
 }
 
