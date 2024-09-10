@@ -13,9 +13,4 @@ function sort(oldArray){
             }
         }
     }
-
-
-
-
-
 };

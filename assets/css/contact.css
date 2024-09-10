@@ -26,7 +26,7 @@
 	color: #fff;
 }
 .contact .php-email-form {
-	width: 70%;
+	width: 80%;
 	padding: 30px;
 	background: #040b1451;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -49,7 +49,7 @@
 	display: none;
 	color: #fff;
 	background: #ed3c0d;
-	text-align: left;
+	text-align: center;
 	padding: 15px;
 	font-weight: 600;
 }
