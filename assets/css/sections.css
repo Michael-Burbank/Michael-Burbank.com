@@ -4,11 +4,8 @@
 section {
 	padding: 60px 0;
 	overflow: hidden;
-	background: linear-gradient(170deg, #00000085, #2e0443a3);
-}
-
-.section-bg {
-	background: #f5f8fd;
+	/* background: linear-gradient(170deg, #00000085, #2e0443a3); */
+	background: linear-gradient(170deg, #0000009c, #2e0443a3);
 }
 
 .section-title {
