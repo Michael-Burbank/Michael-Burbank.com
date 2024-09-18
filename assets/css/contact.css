@@ -5,6 +5,7 @@
 	padding-bottom: 20px;
 	/* font-style:italic; */
 	background: linear-gradient(170deg, #00000085, #2e0443);
+	width: 100%;
 }
 
 #contact h3 {
