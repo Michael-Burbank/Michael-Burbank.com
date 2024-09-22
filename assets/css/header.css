@@ -16,9 +16,10 @@
 }
 
 #header .profile img {
-	margin: 15px auto;
+	margin: 25px auto;
+	padding: 10px auto;
 	display: block;
-	width: 120px;
+	width: 150px;
 	border: 8px solid #4104a3;
 }
 
@@ -30,12 +31,16 @@
 	-moz-text-align-last: center;
 	text-align-last: center;
 	font-family: "Poppins", sans-serif;
+	letter-spacing: 0.1em;
 }
 
 #header .profile h1 a,
 #header .profile h1 a:hover {
 	color: #fff;
 	text-decoration: none;
+}
+.social-links  {
+	padding-right: 20px !important;
 }
 
 #header .profile .social-links a {
@@ -44,8 +49,9 @@
 	background: #212431;
 	color: #fff;
 	line-height: 1;
-	padding: 8px 0;
-	margin-right: 4px;
+	padding: 8px 0 0 0;
+	/* margin-top: 10px; */
+	margin-right: 5px;
 	border-radius: 50%;
 	text-align: center;
 	width: 36px;

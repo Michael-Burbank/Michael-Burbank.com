@@ -2,8 +2,11 @@
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
+
 .nav-menu {
 	padding: 30px 0 0 0;
+	margin: 60px 0 0 0;
+	letter-spacing: 0.4em;
 }
 
 .nav-menu * {
@@ -15,6 +18,8 @@
 .nav-menu > ul > li {
 	position: relative;
 	white-space: nowrap;
+	/* margin-top:0; */
+	padding: 20px 0 0 0;
 }
 
 .nav-menu a,
@@ -41,6 +46,7 @@
 .nav-menu li:hover > a {
 	text-decoration: none;
 	color: #fff;
+	
 }
 
 .nav-menu a:hover i,
@@ -48,6 +54,7 @@
 .nav-menu .active:focus i,
 .nav-menu li:hover > a i {
 	color: #7b31f2;
+	
 	
 }
 
