@@ -215,3 +215,26 @@ Easy on scroll event listener
 		});
 	}
 })();
+
+$(document).ready(function() {
+    $('form').on('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        $.ajax({
+            url: 'contact.php',
+            type: 'POST',
+            data: {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                subject: $('#subject').val(),
+                message: $('#message').val()
+            },
+            success: function(response) {
+                console.log('Form submitted successfully');
+            },
+            error: function(xhr, status, error) {
+                console.error('Form submission failed: ' + error);
+            }
+        });
+    });
+});
