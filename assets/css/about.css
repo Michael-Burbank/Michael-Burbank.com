@@ -14,6 +14,10 @@
 	/* margin-right: 30px; */
 }
 
+.about .section-title p{
+	color: black;
+}
+
 .about .content ul {
 	list-style: none;
 	padding: 0;

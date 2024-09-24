@@ -14,6 +14,10 @@
 	color: #490dab;
 }
 
+.contact .container .section-title p{
+	color: black;
+}
+
 .contact .info {
 	/* padding: 30px; */
 	background: #fff;

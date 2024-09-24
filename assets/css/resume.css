@@ -8,6 +8,9 @@
 	margin-bottom: 20px;
 	color: #490dab;
 }
+.resume .container .section-title p{
+	color: black;
+}
 
 .resume .resume-item {
 	padding: 0 0 20px 20px;
