@@ -5,7 +5,7 @@
   */
 
 
-  $receiving_email_address = 'Mike.w.Burbank@gmail.com';
+  $receiving_email_address = 'mike.w.burbank@gmail.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
