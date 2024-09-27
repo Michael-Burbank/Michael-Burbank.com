@@ -4,8 +4,9 @@
   * For more info and help: https://bootstrapmade.com/php-email-form/
   */
 
-
-  $receiving_email_address = 'mike.w.burbank@gmail.com';
+// TODO!: Use below for Contact.php Inquiry Web Form. 
+//TODO!: Implement Google restAPI / GMAIL SMTP?
+  $receiving_email_address = '#';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
@@ -21,15 +22,19 @@
   $contact->from_email = $_POST['email'];
   $contact->subject = $_POST['subject'];
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
+
+// TODO!: Finish setting up SMTP prot. requirements for GMAIL PHP Web Contact form. 
+
+// TODO!: Implement Google API => Mail - Contact.php Web form - Inquiry => GMAIL
+
+// TODO!: SMTP to send emails. Enter correct SMTP credentials
   $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
+    'host' => 'smtp.gmail.com', // TODO: <= SMTP
+    'username' => 'example',   // TODO: <= Email add.
+    'password' => 'pass',     // TODO: <= Email pass.
+    'port' => '587'          // TODO: <= Default Port #.
   );
-  */
+  
 
   $contact->add_message( $_POST['name'], 'From');
   $contact->add_message( $_POST['email'], 'Email');
