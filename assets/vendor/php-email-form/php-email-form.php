@@ -1677,6 +1677,14 @@ class PHPMailer
         return function_exists('idn_to_ascii') && function_exists('mb_convert_encoding');
     }
 
+
+
+
+
+
+
+    
+
     /**
      * Converts IDN in given email address to its ASCII form, also known as punycode, if possible.
      * Important: Address must be passed in same encoding as currently set in PHPMailer::$CharSet.
