@@ -8,5 +8,8 @@
 		"scrollto",
 		"swiper",
 		"valuenow"
-	]
+	],
+	"files.autoSave": "onFocusChange",
+	"editor.fontSize": 14,
+	"editor.autoClosingBrackets": "always"
 }
