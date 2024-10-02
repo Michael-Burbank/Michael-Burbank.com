@@ -27,6 +27,7 @@
 
       let formData = new FormData( thisForm );
 
+      // reCAPTCH => https://developers.google.com/recaptcha/docs/faq
       if ( recaptcha ) {
         if(typeof grecaptcha !== "undefined" ) {
           grecaptcha.ready(function() {

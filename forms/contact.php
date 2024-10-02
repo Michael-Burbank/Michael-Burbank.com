@@ -30,9 +30,9 @@
 // TODO!: SMTP to send emails. Enter correct SMTP credentials
   $contact->smtp = array(
     'host' => 'smtp.gmail.com', // TODO: <= SMTP
-    'username' => 'example',   // TODO: <= Email add.
-    'password' => 'pass',     // TODO: <= Email pass.
-    'port' => '587'          // TODO: <= Default Port #.
+    'username' => 'burbank536@gmail.com',   // TODO: <= Email add.
+    'password' => '#_ENTER WHEN_READY',     // TODO: <= Email pass.
+    'port' => '587'          // TODO: <= Default Port #. SSL
   );
   
 
