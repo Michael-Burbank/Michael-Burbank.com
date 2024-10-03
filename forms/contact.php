@@ -28,12 +28,12 @@
 // TODO!: Implement Google API => Mail - Contact.php Web form - Inquiry => GMAIL
 
 // TODO!: SMTP to send emails. Enter correct SMTP credentials
-  $contact->smtp = array(
-    'host' => 'smtp.gmail.com', // TODO: <= SMTP
-    'username' => 'burbank536@gmail.com',   // TODO: <= Email add.
-    'password' => '#_ENTER WHEN_READY',     // TODO: <= Email pass.
-    'port' => '587'          // TODO: <= Default Port #. SSL
-  );
+  // $contact->smtp = array(
+  //   'host' => 'smtp.gmail.com', // TODO: <= SMTP
+  //   'username' => 'burbank536@gmail.com',   // TODO: <= Email add.
+  //   'password' => '#_ENTER WHEN_READY',     // TODO: <= Email pass.
+  //   'port' => '587'          // TODO: <= Default Port #. SSL
+  // );
   
 
   $contact->add_message( $_POST['name'], 'From');
