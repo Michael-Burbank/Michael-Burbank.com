@@ -6,6 +6,15 @@
 
 // TODO!: Use below for Contact.php Inquiry Web Form. 
 //TODO!: Implement Google restAPI / GMAIL SMTP?
+
+// TODO!: PHP Mailer to send emails. https://mailtrap.io/blog/phpmailer/
+// TODO!: Mailgun SMTP https://try.mailgun.com/smtp-services/?utm_source=google&utm_medium=cpc&utm_campaign=NA%20%7C%20SMTP&utm_id=15620044732&utm_content=151447402754&utm_term=smtp%20php&gad_source=1&gclid=Cj0KCQjwjNS3BhChARIsAOxBM6qgi6mvJF9Lyh9Jx-9Nl-UzxiJYWYMLjXMI3dRp7BEmOgPNtNCOpXQaAsVcEALw_wcB
+
+// TODO!: symfony mailer php
+//TODO!: https://gist.github.com/daveh/1164348fe21a6e7363d28c7b94c9eb3f
+// TODO!: https://www.namecheap.com/support/knowledgebase/article.aspx/10038/31/how-to-configure-a-contact-form-with-us/#smtp
+
+
   $receiving_email_address = '#';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
