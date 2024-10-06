@@ -42,7 +42,8 @@ $contact->smtp = array(
   'host' => 'smtp.gmail.com', 
   'username' => 'burbank536@gmail.com',   
   'password' => 'yxbxfrzotwvnrpsx',     
-  'port' => '465'
+  'port' => '465',
+  'encryption' => 'ssl'
 );
 
 
