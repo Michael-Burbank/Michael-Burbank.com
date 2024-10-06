@@ -16,7 +16,7 @@
 // TODO!: https://www.namecheap.com/support/knowledgebase/article.aspx/10038/31/how-to-configure-a-contact-form-with-us/#smtp
 
 
-$receiving_email_address = '#';
+$receiving_email_address = 'burbank536@gmail.com';
 
 if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
   include($php_email_form);
