@@ -1,36 +1,60 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
+
+$receiving_email_address = 'mike.w.burbank@gmail.com';
+
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'burbank536@gmail.com'; // Your Gmail address
+    $mail->Password   = 'yxbxfrzotwvnrpsx'; // Your Gmail app password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = 465;
+
+    //Recipients
+    $mail->setFrom($_POST['email'], $_POST['name']);
+    $mail->addAddress($receiving_email_address);
+
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = $_POST['subject'];
+    $mail->Body    = $_POST['message'];
+    $mail->AltBody = strip_tags($_POST['message']);
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
 
 /**
  * Requires the "PHP Email Form" library
  * For more info and help: https://bootstrapmade.com/php-email-form/
  */
 
-// TODO!: Use below for Contact.php Inquiry Web Form. 
-//TODO!: Implement Google restAPI / GMAIL SMTP?
+// $receiving_email_address = 'mike.w.burbank@gmail.com';
 
-// TODO!: PHP Mailer to send emails. https://mailtrap.io/blog/phpmailer/
-// TODO!: Mailgun SMTP https://try.mailgun.com/smtp-services/?utm_source=google&utm_medium=cpc&utm_campaign=NA%20%7C%20SMTP&utm_id=15620044732&utm_content=151447402754&utm_term=smtp%20php&gad_source=1&gclid=Cj0KCQjwjNS3BhChARIsAOxBM6qgi6mvJF9Lyh9Jx-9Nl-UzxiJYWYMLjXMI3dRp7BEmOgPNtNCOpXQaAsVcEALw_wcB
+// if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
+//   include($php_email_form);
+// } else {
+//   die('Unable to load the "PHP Email Form" Library!');
+// }
 
-// TODO!: symfony mailer php
-//TODO!: https://gist.github.com/daveh/1164348fe21a6e7363d28c7b94c9eb3f
-// TODO!: https://www.namecheap.com/support/knowledgebase/article.aspx/10038/31/how-to-configure-a-contact-form-with-us/#smtp
+// $contact = new PHP_Email_Form;
+// $contact->ajax = true;
 
-
-$receiving_email_address = 'mike.w.burbank@gmail.com';
-
-if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
-  include($php_email_form);
-} else {
-  die('Unable to load the "PHP Email Form" Library!');
-}
-
-$contact = new PHP_Email_Form;
-$contact->ajax = true;
-
-$contact->to = $receiving_email_address;
-$contact->from_name = $_POST['name'];
-$contact->from_email = $_POST['email'];
-$contact->subject = $_POST['subject'];
+// $contact->to = $receiving_email_address;
+// $contact->from_name = $_POST['name'];
+// $contact->from_email = $_POST['email'];
+// $contact->subject = $_POST['subject'];
 
 
 // TODO!: Finish setting up SMTP prot. requirements for GMAIL PHP Web Contact form. 
@@ -38,17 +62,19 @@ $contact->subject = $_POST['subject'];
 // TODO!: Implement Google API => Mail - Contact.php Web form - Inquiry => GMAIL
 
 // TODO!: SMTP to send emails. Enter correct SMTP credentials
-$contact->smtp = array(
-  'host' => 'smtp.gmail.com', 
-  'username' => 'burbank536@gmail.com',   
-  'password' => 'yxbxfrzotwvnrpsx',     
-  'port' => '465',
-  'encryption' => 'ssl'
-);
+// $contact->smtp = array(
+//   'host' => 'smtp.gmail.com', 
+//   'username' => 'burbank536@gmail.com',   
+//   'password' => 'yxbxfrzotwvnrpsx',     
+//   'port' => '465',
+//   'encryption' => 'ssl'
+// );
 
 
-$contact->add_message($_POST['name'], 'From');
-$contact->add_message($_POST['email'], 'Email');
-$contact->add_message($_POST['message'], 'Message', 10);
+// $contact->add_message($_POST['name'], 'From');
+// $contact->add_message($_POST['email'], 'Email');
+// $contact->add_message($_POST['message'], 'Message', 10);
 
-echo $contact->send();
+// echo $contact->send();
+
+?>
