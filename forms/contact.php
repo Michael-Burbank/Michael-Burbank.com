@@ -1,40 +1,61 @@
 <?php
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
 
+// Define the receiving email address
 $receiving_email_address = 'burbank536@gmail.com';
 
-$mail = new PHPMailer(true);
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate form data
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
+    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
-try {
-    //Server settings
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'burbank536@gmail.com'; // Your Gmail address
-    $mail->Password   = 'yxbxfrzotwvnrpsx'; // Your Gmail app password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = 465;
+    if ($name && $email && $subject && $message) {
+        $mail = new PHPMailer(true);
 
-    //Recipients
-    $mail->setFrom($_POST['email'], $_POST['name']);
-    $mail->addAddress($receiving_email_address);
+        try {
+            // Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'burbank536@gmail.com'; // Your Gmail address
+            $mail->Password   = 'yxbxfrzotwvnrpsx'; // Your Gmail app password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
 
-    // Content
-    $mail->isHTML(true);
-    $mail->Subject = $_POST['subject'];
-    $mail->Body    = $_POST['message'];
-    $mail->AltBody = strip_tags($_POST['message']);
+            // Recipients
+            $mail->setFrom($email, $name);
+            $mail->addAddress($receiving_email_address);
 
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            $mail->AltBody = strip_tags($message);
+
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    } else {
+        echo 'Invalid form data. Please check your inputs.';
+    }
+} else {
+    echo 'Invalid request method.';
 }
+?>
 
-
+<?php
 /**
  * Requires the "PHP Email Form" library
  * For more info and help: https://bootstrapmade.com/php-email-form/
