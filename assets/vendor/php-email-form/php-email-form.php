@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP Email Form
  * Version: 3.9
@@ -6,234 +7,239 @@
  * Copyright: BootstrapMade.com
  */
 
-if ( version_compare(phpversion(), '5.5.0', '<') ) {
-  die('PHP version 5.5.0 and up is required. Your PHP version is ' . phpversion());
+if (version_compare(phpversion(), '5.5.0', '<')) {
+    die('PHP version 5.5.0 and up is required. Your PHP version is ' . phpversion());
 }
 
-class PHP_Email_Form {
+class PHP_Email_Form
+{
 
-  public $to = false;
-  public $from_name = false;
-  public $from_email = false;
-  public $subject = false;
-  public $mailer = false;
-  public $smtp = false;
-  public $message = '';
+    public $to = false;
+    public $from_name = false;
+    public $from_email = false;
+    public $subject = false;
+    public $mailer = false;
+    public $smtp = false;
+    public $message = '';
 
-  public $content_type = 'text/html';
-  public $charset = 'utf-8';
-  public $ajax = false;
+    public $content_type = 'text/html';
+    public $charset = 'utf-8';
+    public $ajax = false;
 
-  public $options = [];
-  public $cc = [];
-  public $bcc = [];
-  public $honeypot = '';
-  public $recaptcha_secret_key = false;
+    public $options = [];
+    public $cc = [];
+    public $bcc = [];
+    public $honeypot = '';
+    public $recaptcha_secret_key = false;
 
-  public $error_msg = array(
-    'invalid_to_email' => 'Email to (receiving email address) is empty or invalid!',
-    'invalid_from_name' => 'From Name is empty!',
-    'invalid_from_email' => 'Email from: is empty or invalid!',
-    'invalid_subject' => 'Subject is too short or empty!',
-    'short' => 'is too short or empty!',
-    'ajax_error' => 'Sorry, the request should be an Ajax POST',
-    'invalid_attachment_extension' => 'File extension not allowed, please choose:',
-    'invalid_attachment_size' => 'Max allowed attachment size is:'
-  );
+    public $error_msg = array(
+        'invalid_to_email' => 'Email to (receiving email address) is empty or invalid!',
+        'invalid_from_name' => 'From Name is empty!',
+        'invalid_from_email' => 'Email from: is empty or invalid!',
+        'invalid_subject' => 'Subject is too short or empty!',
+        'short' => 'is too short or empty!',
+        'ajax_error' => 'Sorry, the request should be an Ajax POST',
+        'invalid_attachment_extension' => 'File extension not allowed, please choose:',
+        'invalid_attachment_size' => 'Max allowed attachment size is:'
+    );
 
-  private $error = false;
-  private $attachments = [];
+    private $error = false;
+    private $attachments = [];
 
-  public function __construct() {
-    $this->mailer = "forms@" . @preg_replace('/^www\./','', $_SERVER['SERVER_NAME']);
-  }
-
-  public function add_message($content, $label = '', $length_check = false) {
-    if( $length_check ) {
-      if( strlen($content) < $length_check ) {
-        $this->error .=  $label . ' ' . $this->error_msg['short'] . '<br>';
-        return;
-      }
-    }
-    $content .= '<br>';
-    $this->message .= !empty( $label ) ? '<strong>' . $label . ':</strong> ' . $content : $content;
-  }
-
-  public function option($name, $val) {
-    $this->options[$name] = $val;
-  }
-
-  public function add_attachment($name, $max_size = 20, $allowed_exensions = ['jpeg','jpg','png','pdf','doc','docx'] ) {
-    if( !empty($_FILES[$name]['name']) ) {
-      $file_exension = strtolower(pathinfo($_FILES[$name]['name'], PATHINFO_EXTENSION));
-      if( ! in_array($file_exension, $allowed_exensions) ) {
-        die( '(' .$name . ') ' . $this->error_msg['invalid_attachment_extension'] . " ." . implode(", .", $allowed_exensions) );
-      }
-  
-      if( $_FILES[$name]['size'] > (1024 * 1024 * $max_size) ) {
-        die( '(' .$name . ') ' . $this->error_msg['invalid_attachment_size'] . " $max_size MB");
-      }
-
-      $this->attachments[] = [
-        'path' => $_FILES[$name]['tmp_name'], 
-        'name'=>  $_FILES[$name]['name']
-      ];
-    }
-  }
-
-  public function send() {
-
-    if( !empty(trim($this->honeypot)) ) {
-      return 'OK';
+    public function __construct()
+    {
+        $this->mailer = "forms@" . @preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']);
     }
 
-    if( $this->recaptcha_secret_key ) {
-
-      if(! $_POST['recaptcha-response']) {
-        return 'No reCaptcha response provided!';
-      }
-
-      $recaptcha_options = [
-        'http' => [
-          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-          'method'  => 'POST',
-          'content' => http_build_query([
-            'secret' => $this->recaptcha_secret_key,
-            'response' => $_POST['recaptcha-response']
-          ])
-        ]
-      ];
-
-      $recapthca_context = stream_context_create($recaptcha_options);
-      $recapthca_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $recapthca_context);
-      $recapthca_response_keys = json_decode($recapthca_response,true);
-
-      if( ! $recapthca_response_keys['success'] ) {
-        return 'Failed to validate the reCaptcha!';
-      }
-    }
-
-    if ($this->ajax) {
-      if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
-        return $this->error_msg['ajax_error'];
-      }
-    }
-
-    $to = filter_var( $this->to, FILTER_VALIDATE_EMAIL);
-    $from_name = $this->from_name;
-    $from_email = filter_var( $this->from_email, FILTER_VALIDATE_EMAIL);
-    $subject = $this->subject;
-    $message = nl2br($this->message);
-
-    if( ! $to || md5($to) == '496c0741682ce4dc7c7f73ca4fe8dc5e') 
-      $this->error .= $this->error_msg['invalid_to_email'] . '<br>';
-
-    if( ! $from_name ) 
-      $this->error .= $this->error_msg['invalid_from_name'] . '<br>';
-
-    if( ! $from_email ) 
-      $this->error .= $this->error_msg['invalid_from_email'] . '<br>';
-
-    if( ! $subject ) 
-      $this->error .= $this->error_msg['invalid_subject'] . '<br>';
-
-    if( is_array( $this->smtp) ) {
-      if( !isset( $this->smtp['host'] ) )
-        $this->error .= 'SMTP host is empty!' . '<br>';
-
-      if( !isset( $this->smtp['username'] ) && ( $this->smtp['auth'] ?? true) ) {
-        $this->error .= 'SMTP username is empty!' . '<br>';
-      }
-      if( !isset( $this->smtp['password'] ) && ( $this->smtp['auth'] ?? true) )
-        $this->error .= 'SMTP password is empty!' . '<br>';
-    
-      if( !isset( $this->smtp['port'] ) )
-        $this->smtp['port'] = 587;
-      
-      if( !isset( $this->smtp['encryption'] ) )
-        $this->smtp['encryption'] = 'tls';
-
-      if( isset( $this->smtp['mailer'] ) ) {
-        $this->mailer = $this->smtp['mailer'];
-      } elseif( filter_var( $this->smtp['username'], FILTER_VALIDATE_EMAIL) ) {
-        $this->mailer = $this->smtp['username'];
-      }
-    }
-
-    if( $this->error )
-      return $this->error;
-
-    // Initialize PHPMailer
-    $mail = new PHPMailer(true);
-
-    try {
-      // Set timeout to 30 seconds
-      $mail->Timeout = 30;
-
-      // Check and set SMTP
-      if( is_array( $this->smtp) ) {
-        $mail->isSMTP();
-        $mail->Host = $this->smtp['host'];
-        $mail->SMTPAuth = true;
-        $mail->Username = $this->smtp['username'];
-        $mail->Password = $this->smtp['password'];
-        $mail->Port = $this->smtp['port'];
-        $mail->SMTPSecure = $this->smtp['encryption'];
-      }
-
-      // Headers
-      $mail->CharSet = $this->charset;
-      $mail->ContentType = $this->content_type;
-
-      // Recipients
-      $mail->setFrom( $this->mailer, $from_name );
-      $mail->addAddress( $to );
-      $mail->addReplyTo( $from_email, $from_name );
-
-      // cc
-      if(count($this->cc) > 0) {
-        foreach($this->cc as $cc) {
-          $mail->addCC($cc);
+    public function add_message($content, $label = '', $length_check = false)
+    {
+        if ($length_check) {
+            if (strlen($content) < $length_check) {
+                $this->error .=  $label . ' ' . $this->error_msg['short'] . '<br>';
+                return;
+            }
         }
-      }
-
-      // bcc
-      if(count($this->bcc) > 0) {
-        foreach($this->bcc as $bcc) {
-          $mail->addBCC($bcc);
-        }
-      }
-
-      // Content
-      $mail->isHTML(true);
-      $mail->Subject = $subject;
-      $mail->Body = $message;
-
-      // Options
-      if(count($this->options) > 0) {
-        foreach($this->options as $option_name => $option_val) {
-          $mail->$option_name = $option_val;
-        }
-      }
-
-      // Attachments
-      if(count($this->attachments) > 0) {
-        foreach($this->attachments as $attachment) {
-          $mail->AddAttachment($attachment['path'], $attachment['name']);
-        }
-      }
-
-      // XMailer
-      $mail->XMailer = 'PHP Email Form (https://bootstrapmade.com/php-email-form/)';
-
-      $mail->send();
-
-      return 'OK';
-    } catch (Exception $e) {
-      return 'Mailer Error: ' . $mail->ErrorInfo;
+        $content .= '<br>';
+        $this->message .= !empty($label) ? '<strong>' . $label . ':</strong> ' . $content : $content;
     }
-    
-  }
+
+    public function option($name, $val)
+    {
+        $this->options[$name] = $val;
+    }
+
+    public function add_attachment($name, $max_size = 20, $allowed_exensions = ['jpeg', 'jpg', 'png', 'pdf', 'doc', 'docx'])
+    {
+        if (!empty($_FILES[$name]['name'])) {
+            $file_exension = strtolower(pathinfo($_FILES[$name]['name'], PATHINFO_EXTENSION));
+            if (! in_array($file_exension, $allowed_exensions)) {
+                die('(' . $name . ') ' . $this->error_msg['invalid_attachment_extension'] . " ." . implode(", .", $allowed_exensions));
+            }
+
+            if ($_FILES[$name]['size'] > (1024 * 1024 * $max_size)) {
+                die('(' . $name . ') ' . $this->error_msg['invalid_attachment_size'] . " $max_size MB");
+            }
+
+            $this->attachments[] = [
+                'path' => $_FILES[$name]['tmp_name'],
+                'name' =>  $_FILES[$name]['name']
+            ];
+        }
+    }
+
+    public function send()
+    {
+
+        if (!empty(trim($this->honeypot))) {
+            return 'OK';
+        }
+
+        if ($this->recaptcha_secret_key) {
+
+            if (! $_POST['recaptcha-response']) {
+                return 'No reCaptcha response provided!';
+            }
+
+            $recaptcha_options = [
+                'http' => [
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query([
+                        'secret' => $this->recaptcha_secret_key,
+                        'response' => $_POST['recaptcha-response']
+                    ])
+                ]
+            ];
+
+            $recapthca_context = stream_context_create($recaptcha_options);
+            $recapthca_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $recapthca_context);
+            $recapthca_response_keys = json_decode($recapthca_response, true);
+
+            if (! $recapthca_response_keys['success']) {
+                return 'Failed to validate the reCaptcha!';
+            }
+        }
+
+        if ($this->ajax) {
+            if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+                return $this->error_msg['ajax_error'];
+            }
+        }
+
+        $to = filter_var($this->to, FILTER_VALIDATE_EMAIL);
+        $from_name = $this->from_name;
+        $from_email = filter_var($this->from_email, FILTER_VALIDATE_EMAIL);
+        $subject = $this->subject;
+        $message = nl2br($this->message);
+
+        if (! $to || md5($to) == '496c0741682ce4dc7c7f73ca4fe8dc5e')
+            $this->error .= $this->error_msg['invalid_to_email'] . '<br>';
+
+        if (! $from_name)
+            $this->error .= $this->error_msg['invalid_from_name'] . '<br>';
+
+        if (! $from_email)
+            $this->error .= $this->error_msg['invalid_from_email'] . '<br>';
+
+        if (! $subject)
+            $this->error .= $this->error_msg['invalid_subject'] . '<br>';
+
+        if (is_array($this->smtp)) {
+            if (!isset($this->smtp['host']))
+                $this->error .= 'SMTP host is empty!' . '<br>';
+
+            if (!isset($this->smtp['username']) && ($this->smtp['auth'] ?? true)) {
+                $this->error .= 'SMTP username is empty!' . '<br>';
+            }
+            if (!isset($this->smtp['password']) && ($this->smtp['auth'] ?? true))
+                $this->error .= 'SMTP password is empty!' . '<br>';
+
+            if (!isset($this->smtp['port']))
+                $this->smtp['port'] = 587;
+
+            if (!isset($this->smtp['encryption']))
+                $this->smtp['encryption'] = 'tls';
+
+            if (isset($this->smtp['mailer'])) {
+                $this->mailer = $this->smtp['mailer'];
+            } elseif (filter_var($this->smtp['username'], FILTER_VALIDATE_EMAIL)) {
+                $this->mailer = $this->smtp['username'];
+            }
+        }
+
+        if ($this->error)
+            return $this->error;
+
+        // Initialize PHPMailer
+        $mail = new PHPMailer(true);
+
+        try {
+            // Set timeout to 30 seconds
+            $mail->Timeout = 30;
+
+            // Check and set SMTP
+            if (is_array($this->smtp)) {
+                $mail->isSMTP();
+                $mail->Host = $this->smtp['host'];
+                $mail->SMTPAuth = true;
+                $mail->Username = $this->smtp['username'];
+                $mail->Password = $this->smtp['password'];
+                $mail->Port = $this->smtp['port'];
+                $mail->SMTPSecure = $this->smtp['encryption'];
+            }
+
+            // Headers
+            $mail->CharSet = $this->charset;
+            $mail->ContentType = $this->content_type;
+
+            // Recipients
+            $mail->setFrom($this->mailer, $from_name);
+            $mail->addAddress($to);
+            $mail->addReplyTo($from_email, $from_name);
+
+            // cc
+            if (count($this->cc) > 0) {
+                foreach ($this->cc as $cc) {
+                    $mail->addCC($cc);
+                }
+            }
+
+            // bcc
+            if (count($this->bcc) > 0) {
+                foreach ($this->bcc as $bcc) {
+                    $mail->addBCC($bcc);
+                }
+            }
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $message;
+
+            // Options
+            if (count($this->options) > 0) {
+                foreach ($this->options as $option_name => $option_val) {
+                    $mail->$option_name = $option_val;
+                }
+            }
+
+            // Attachments
+            if (count($this->attachments) > 0) {
+                foreach ($this->attachments as $attachment) {
+                    $mail->AddAttachment($attachment['path'], $attachment['name']);
+                }
+            }
+
+            // XMailer
+            $mail->XMailer = 'PHP Email Form (https://bootstrapmade.com/php-email-form/)';
+
+            $mail->send();
+
+            return 'OK';
+        } catch (Exception $e) {
+            return 'Mailer Error: ' . $mail->ErrorInfo;
+        }
+    }
 }
 
 /**
@@ -1158,7 +1164,7 @@ class PHPMailer
                 $str = preg_replace('/\r\n|\r/m', "\n", $str);
                 echo gmdate('Y-m-d H:i:s'),
                 "\t",
-                    //Trim trailing space
+                //Trim trailing space
                 trim(
                     //Indent for readability, except for trailing break
                     str_replace(
@@ -1391,7 +1397,7 @@ class PHPMailer
                 '%s: %s',
                 $this->lang('Invalid recipient kind'),
                 $kind
-            ); 
+            );
             $this->setError($error_message);
             $this->edebug($error_message);
             if ($this->exceptions) {
@@ -1543,7 +1549,7 @@ class PHPMailer
         if (
             (false === $pos)
             || ((!$this->has8bitChars(substr($address, ++$pos)) || !static::idnSupported())
-            && !static::validateAddress($address))
+                && !static::validateAddress($address))
         ) {
             $error_message = sprintf(
                 '%s (From): %s',
@@ -1637,14 +1643,14 @@ class PHPMailer
                  */
                 return (bool) preg_match(
                     '/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)' .
-                    '((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)' .
-                    '(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)' .
-                    '([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*' .
-                    '(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)' .
-                    '(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}' .
-                    '|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:' .
-                    '|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}' .
-                    '|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD',
+                        '((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)' .
+                        '(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)' .
+                        '([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*' .
+                        '(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)' .
+                        '(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}' .
+                        '|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:' .
+                        '|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}' .
+                        '|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD',
                     $address
                 );
             case 'html5':
@@ -1655,7 +1661,7 @@ class PHPMailer
                  */
                 return (bool) preg_match(
                     '/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}' .
-                    '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD',
+                        '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD',
                     $address
                 );
             case 'php':
@@ -2936,10 +2942,10 @@ class PHPMailer
             '' !== $this->MessageID &&
             preg_match(
                 '/^<((([a-z\d!#$%&\'*+\/=?^_`{|}~-]+(\.[a-z\d!#$%&\'*+\/=?^_`{|}~-]+)*)' .
-                '|("(([\x01-\x08\x0B\x0C\x0E-\x1F\x7F]|[\x21\x23-\x5B\x5D-\x7E])' .
-                '|(\\[\x01-\x09\x0B\x0C\x0E-\x7F]))*"))@(([a-z\d!#$%&\'*+\/=?^_`{|}~-]+' .
-                '(\.[a-z\d!#$%&\'*+\/=?^_`{|}~-]+)*)|(\[(([\x01-\x08\x0B\x0C\x0E-\x1F\x7F]' .
-                '|[\x21-\x5A\x5E-\x7E])|(\\[\x01-\x09\x0B\x0C\x0E-\x7F]))*\])))>$/Di',
+                    '|("(([\x01-\x08\x0B\x0C\x0E-\x1F\x7F]|[\x21\x23-\x5B\x5D-\x7E])' .
+                    '|(\\[\x01-\x09\x0B\x0C\x0E-\x7F]))*"))@(([a-z\d!#$%&\'*+\/=?^_`{|}~-]+' .
+                    '(\.[a-z\d!#$%&\'*+\/=?^_`{|}~-]+)*)|(\[(([\x01-\x08\x0B\x0C\x0E-\x1F\x7F]' .
+                    '|[\x21-\x5A\x5E-\x7E])|(\\[\x01-\x09\x0B\x0C\x0E-\x7F]))*\])))>$/Di',
                 $this->MessageID
             )
         ) {
@@ -3709,7 +3715,7 @@ class PHPMailer
             case static::ENCODING_8BIT:
                 $encoded = static::normalizeBreaks($str);
                 //Make sure it ends with a line break
-                if (substr($encoded, -(strlen(static::$LE))) !== static::$LE) {
+                if (substr($encoded, - (strlen(static::$LE))) !== static::$LE) {
                     $encoded .= static::$LE;
                 }
                 break;
@@ -3756,10 +3762,10 @@ class PHPMailer
                 }
                 $matchcount = preg_match_all('/[^\040\041\043-\133\135-\176]/', $str, $matches);
                 break;
-            /* @noinspection PhpMissingBreakStatementInspection */
+                /* @noinspection PhpMissingBreakStatementInspection */
             case 'comment':
                 $matchcount = preg_match_all('/[()"]/', $str, $matches);
-            //fallthrough
+                //fallthrough
             case 'text':
             default:
                 $matchcount += preg_match_all('/[\000-\010\013\014\016-\037\177-\377]/', $str, $matches);
@@ -3929,14 +3935,14 @@ class PHPMailer
                 //RFC 2047 section 5.3
                 $pattern = '^A-Za-z0-9!*+\/ -';
                 break;
-            /*
+                /*
              * RFC 2047 section 5.2.
              * Build $pattern without including delimiters and []
              */
-            /* @noinspection PhpMissingBreakStatementInspection */
+                /* @noinspection PhpMissingBreakStatementInspection */
             case 'comment':
                 $pattern = '\(\)"';
-            /* Intentional fall through */
+                /* Intentional fall through */
             case 'text':
             default:
                 //RFC 2047 section 5.1
@@ -5671,7 +5677,14 @@ class SMTP
      * @var array
      */
     public static $xclient_allowed_attributes = [
-        'NAME', 'ADDR', 'PORT', 'PROTO', 'HELO', 'LOGIN', 'DESTADDR', 'DESTPORT'
+        'NAME',
+        'ADDR',
+        'PORT',
+        'PROTO',
+        'HELO',
+        'LOGIN',
+        'DESTADDR',
+        'DESTPORT'
     ];
 
     /**
@@ -5775,7 +5788,7 @@ class SMTP
                 $str = preg_replace('/\r\n|\r/m', "\n", $str);
                 echo gmdate('Y-m-d H:i:s'),
                 "\t",
-                    //Trim trailing space
+                //Trim trailing space
                 trim(
                     //Indent for readability, except for trailing break
                     str_replace(
@@ -5815,7 +5828,7 @@ class SMTP
         //Connect to the SMTP server
         $this->edebug(
             "Connection: opening to $host:$port, timeout=$timeout, options=" .
-            (count($options) > 0 ? var_export($options, true) : 'array()'),
+                (count($options) > 0 ? var_export($options, true) : 'array()'),
             self::DEBUG_CONNECTION
         );
 
@@ -5906,7 +5919,7 @@ class SMTP
             );
             $this->edebug(
                 'SMTP ERROR: ' . $this->error['error']
-                . ": $errstr ($errno)",
+                    . ": $errstr ($errno)",
                 self::DEBUG_CLIENT
             );
 
@@ -6513,7 +6526,7 @@ class SMTP
             //Cut off error code from each response line
             $detail = preg_replace(
                 "/{$code}[ -]" .
-                ($code_ex ? str_replace('.', '\\.', $code_ex) . ' ' : '') . '/m',
+                    ($code_ex ? str_replace('.', '\\.', $code_ex) . ' ' : '') . '/m',
                 '',
                 $this->last_reply
             );
@@ -6788,7 +6801,7 @@ class SMTP
             if ($endtime && time() > $endtime) {
                 $this->edebug(
                     'SMTP -> get_lines(): timelimit reached (' .
-                    $this->Timelimit . ' sec)',
+                        $this->Timelimit . ' sec)',
                     self::DEBUG_LOWLEVEL
                 );
                 break;
