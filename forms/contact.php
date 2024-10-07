@@ -96,7 +96,7 @@ try {
     $mail->Username = 'mike.w.burbank@gmail.com';
     $mail->Password = 'yxbxfrzotwvnrpsx';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = 465;
+    $mail->Port = 587;
 
     // Recipients
     $mail->setFrom($email, $name);
