@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $mail->isSMTP();
       $mail->Host       = 'smtp.gmail.com';
       $mail->SMTPAuth   = true;
-      $mail->Username   = 'burbank536@gmail.com'; // Your Gmail address
-      $mail->Password   = 'yxbxfrzotwvnrpsx'; // App Password via GMAIL Security
+      $mail->Username   = 'mike.w.burbank@gmail.com'; // Your Gmail address
+      $mail->Password   = 'xjzgyuixmuvpsjwz'; // App Password via GMAIL Security
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-      $mail->Port       = 465;
+      $mail->Port = 465;
 
       // Recipients
       $mail->setFrom($email, $name);
