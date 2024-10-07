@@ -9,49 +9,49 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
 // Define the receiving email address
-$receiving_email_address = 'burbank536@gmail.com';
+$receiving_email_address = 'mike.w.burbank@gmail.com';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate form data
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
-    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+  // Validate form data
+  $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+  $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-    if ($name && $email && $subject && $message) {
-        $mail = new PHPMailer(true);
+  if ($name && $email && $subject && $message) {
+    $mail = new PHPMailer(true);
 
-        try {
-            // Server settings
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'burbank536@gmail.com'; // Your Gmail address
-            $mail->Password   = 'yxbxfrzotwvnrpsx'; // Your Gmail app password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = 465;
+    try {
+      // Server settings
+      $mail->isSMTP();
+      $mail->Host       = 'smtp.gmail.com';
+      $mail->SMTPAuth   = true;
+      $mail->Username   = 'burbank536@gmail.com'; // Your Gmail address
+      $mail->Password   = 'yxbxfrzotwvnrpsx'; // App Password via GMAIL Security
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+      $mail->Port       = 465;
 
-            // Recipients
-            $mail->setFrom($email, $name);
-            $mail->addAddress($receiving_email_address);
+      // Recipients
+      $mail->setFrom($email, $name);
+      $mail->addAddress($receiving_email_address);
 
-            // Content
-            $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body    = $message;
-            $mail->AltBody = strip_tags($message);
+      // Content
+      $mail->isHTML(true);
+      $mail->Subject = $subject;
+      $mail->Body    = $message;
+      $mail->AltBody = strip_tags($message);
 
-            $mail->send();
-            echo 'Message has been sent';
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        }
-    } else {
-        echo 'Invalid form data. Please check your inputs.';
+      $mail->send();
+      echo 'Message has been sent';
+    } catch (Exception $e) {
+      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
+  } else {
+    echo 'Invalid form data. Please check your inputs.';
+  }
 } else {
-    echo 'Invalid request method.';
+  echo 'Invalid request method.';
 }
 ?>
 
