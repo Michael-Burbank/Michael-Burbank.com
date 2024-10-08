@@ -15,13 +15,16 @@
   $contact->from_email = $_POST['email'];
   $contact->subject = $_POST['subject'];
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
+  // Uncomment below code if you want to use SMTP to send emails. 
+  // You need to enter your correct SMTP credentials
   
   $contact->smtp = array(
     'host' => 'smtp-mail.outlook.com',
     'username' => 'admin@michael-burbank.com',
     'password' => getenv('SMTP_PASSWORD'), 
-    'port' => '587'
+    'port' => '587', 
+    'SMTP encryption' => 'STARTTLS', 
+    'Authentication Method' => 'OAuth2/Modern Auth'
   );
 
 
