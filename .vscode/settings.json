@@ -15,5 +15,6 @@
 	],
 	"files.autoSave": "onFocusChange",
 	"editor.fontSize": 14,
-	"editor.autoClosingBrackets": "always"
+	"editor.autoClosingBrackets": "always",
+	"git.ignoreLimitWarning": true
 }

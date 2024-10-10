@@ -22,7 +22,7 @@
     'password' => getenv('SMTP_PASSWORD'), 
     'port' => '465', 
     'SMTP encryption' => 'STARTTLS', 
-    'Authentication Method' => 'OAuth2'
+    // 'Authentication Method' => 'OAuth2'
   );
 
 
