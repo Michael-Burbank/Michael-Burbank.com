@@ -19,7 +19,7 @@
   $contact->smtp = [
     'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
-    'password' => getenv('SMTP_PASSWORD'), 
+    'password' => 'Turn off', 
     'port' => '25', 
     'SMTP Authentication' => 'Turn off', 
     'SSL' => 'Turn off',
