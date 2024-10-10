@@ -21,8 +21,8 @@
     'username' => 'admin@michael-burbank.com',
     'password' => getenv('SMTP_PASSWORD'), 
     'port' => '25', 
-    'SMTP Authentication' => 'none', 
-    'SSL' => 'none',
+    'SMTP Authentication' => 'turn off', 
+    'SSL' => 'turn off',
     // 'Authentication Method' => 'OAuth2'
 ];
 
