@@ -17,7 +17,7 @@
 
   // SMTP server settings
   $contact->smtp = [
-    'host' => 'localhost',
+    'CN' => 'localhost',
     'username' => 'admin@michael-burbank.com',
     'password' => getenv('SMTP_PASSWORD'), 
     'port' => '25', 
