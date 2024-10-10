@@ -16,15 +16,15 @@
   $contact->subject = $_POST['subject'];
 
   // SMTP server settings
-  $contact->smtp = array(
+  $contact->smtp = [
     'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
     'password' => getenv('SMTP_PASSWORD'), 
     'port' => '25', 
-    'SMTP authentication' => 'false', 
-    'SMTP security' => 'false',
+    'SMTP Authentication' => 'false', 
+    'SSL' => 'false',
     // 'Authentication Method' => 'OAuth2'
-  );
+];
 
 
   $contact->add_message( $_POST['name'], 'From');
