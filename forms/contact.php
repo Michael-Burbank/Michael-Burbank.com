@@ -17,13 +17,13 @@
 
   // SMTP server settings
   $contact->smtp = [
-    'server' => 'localhost',
+    'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
     'password' => 'Turn off', 
     'port' => '25', 
     'SMTP Authentication' => 'Turn off', 
     'SSL' => 'Turn off',
-    'send mail from' => 'admin@michael-burbank.com'
+    'send mail from' => 'admin@michael-burbank.com',
   ];
 
 
