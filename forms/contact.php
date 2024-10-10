@@ -17,12 +17,13 @@
 
   // SMTP server settings
   $contact->smtp = [
-    'host' => 'smtp-mail.outlook.com',
+    'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
     'password' => getenv('SMTP_PASSWORD'), 
-    'port' => '587', 
-    'SMTP encryption' => 'STARTTLS', 
-    'Authentication' => 'OAuth2',
+    'port' => '25', 
+    'SMTP Authentication' => 'False', 
+    'SSL' => 'False',
+    'send mail from' => 'admin@michael-burbank.com'
   ];
 
 
