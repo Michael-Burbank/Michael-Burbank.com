@@ -17,13 +17,12 @@
 
   // SMTP server settings
   $contact->smtp = [
-    'host' => 'localhost',
+    'host' => 'relay-hosting.secureserver.net',
     'username' => 'admin@michael-burbank.com',
     'password' => 'SMTP_PASSWORD', 
     'port' => '25', 
-    'SMTP Authentication' => 'False', 
-    'SSL' => 'False',
-    'send mail from' => 'admin@michael-burbank.com',
+    'SMTP Authentication' => 'None', 
+    'SSL' => 'None',
   ];
 
 
