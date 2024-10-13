@@ -1,4 +1,12 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
+// Web/Michael-Burbank.com/PHPMailer
   $receiving_email_address = 'admin@michael-burbank.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
@@ -19,7 +27,7 @@
   $contact->smtp = [
     'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
-    'password' => '', 
+    'password' => 'P0wer623!', 
     'port' => '25', 
     'SMTP Authentication' => 'False', 
     // 'SMTPAutoTLS' => 'False',
