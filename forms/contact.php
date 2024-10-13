@@ -2,13 +2,18 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
 
-require '/home/o56n6o9odjy1/public_html/PHPMailer/src/Exception.php';
-require '/home/o56n6o9odjy1/public_html/PHPMailer/src/PHPMailer.php';
-require '/home/o56n6o9odjy1/public_html/PHPMailer/src/SMTP.php';
+// require '/home/o56n6o9odjy1/public_html/PHPMailer/src/Exception.php';
+// require '/home/o56n6o9odjy1/public_html/PHPMailer/src/PHPMailer.php';
+// require '/home/o56n6o9odjy1/public_html/PHPMailer/src/SMTP.php';
+
+// require '/home/o56n6o9odjy1/public_html/PHPMailer/src/Exception.php';
+// require '/home/o56n6o9odjy1/public_html/PHPMailer/src/PHPMailer.php';
+// require '/home/o56n6o9odjy1/public_html/PHPMailer/src/SMTP.php';
+
 // Web/Michael-Burbank.com/PHPMailer
   $receiving_email_address = 'admin@michael-burbank.com';
 
@@ -29,7 +34,7 @@ require '/home/o56n6o9odjy1/public_html/PHPMailer/src/SMTP.php';
   // SMTP server settings
   $contact->smtp = [
     'host' => 'localhost',
-    'username' => 'admin@michael-burbank.com',
+    'username' => 'mike.w.burbank@gmail.com',
     'password' => 'P0wer623!', 
     'port' => '25', 
     'SMTP Authentication' => 'False', 
