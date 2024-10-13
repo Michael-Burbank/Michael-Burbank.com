@@ -1,2 +1,5 @@
 hashed_smtp_password.env
 .DS_Store
+assets/vendor/.DS_Store
+assets/.DS_Store
+.DS_Store
