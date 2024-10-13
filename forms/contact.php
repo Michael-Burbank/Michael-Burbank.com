@@ -2,9 +2,9 @@
   $receiving_email_address = 'admin@michael-burbank.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
+    include $php_email_form ;
   } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
+    die( 'Unable to load the "PHP Email Form" library!');
   }
 
   $contact = new PHP_Email_Form;
@@ -17,12 +17,14 @@
 
   // SMTP server settings
   $contact->smtp = [
-    'host' => 'relay-hosting.secureserver.net',
+    'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
-    'password' => 'SMTP_PASSWORD', 
+    'password' => '', 
     'port' => '25', 
-    'SMTP Authentication' => 'None', 
-    'SSL' => 'None',
+    'SMTP Authentication' => 'False', 
+    // 'SMTPAutoTLS' => 'False',
+    'SSL/TLS' => 'False',
+    'Send mail from' => 'admin@michael-burbank.com'
   ];
 
 
