@@ -1,8 +1,10 @@
 <?php
-$receiving_email_address = 'mike.w.burbank@gmail.com';
+
+
+$receiving_email_address = 'admin@michael-burbank.com';
 
 if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
-    include($php_email_form);
+    include $php_email_form;
 } else {
     die('Unable to load the "PHP Email Form" Library!');
 }
@@ -19,11 +21,19 @@ $contact->subject = $_POST['subject'];
 $contact->smtp = [
     'host' => 'localhost',
     'username' => 'admin@michael-burbank.com',
-    'password' => getenv('SMTP_PASSWORD'),
+    'password' => 'P0wer623!',
     'port' => '25',
     'SMTP Authentication' => 'False',
     'SSL' => 'False',
+    'send mail from' => 'admin@michael-burbank.com',
     
+];
+$mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    ]
 ];
 
 $contact->add_message($_POST['name'], 'From');

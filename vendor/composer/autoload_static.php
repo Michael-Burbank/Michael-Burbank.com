@@ -30,6 +30,7 @@ class ComposerStaticInit9386ebee37a2a4e9cdbcab7b77919bf5
             'Psr\\Log\\' => 8,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'E' => 
         array (
@@ -85,6 +86,10 @@ class ComposerStaticInit9386ebee37a2a4e9cdbcab7b77919bf5
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
