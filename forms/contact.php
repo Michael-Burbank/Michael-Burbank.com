@@ -1,43 +1,50 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 
+require '../vendor/autoload.php';
 $receiving_email_address = 'admin@michael-burbank.com';
 
-if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
-    include $php_email_form;
-} else {
-    die('Unable to load the "PHP Email Form" Library!');
+// Sanitize input data
+$from_name = isset($_POST['name']) ? filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
+$from_email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) : '';
+$subject = isset($_POST['subject']) ? filter_var($_POST['subject'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
+$message = isset($_POST['message']) ? filter_var($_POST['message'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
+
+// Validate email address
+if (!filter_var($from_email, FILTER_VALIDATE_EMAIL)) {
+    die('Invalid email address.');
 }
+$config['protocol'] = "mail";
+$config['smtp_port'] = 587;
 
-$contact = new PHP_Email_Form;
-$contact->ajax = true;
+$mail = new PHPMailer(true);
 
-$contact->to = $receiving_email_address;
-$contact->from_name = $_POST['name'];
-$contact->from_email = $_POST['email'];
-$contact->subject = $_POST['subject'];
+try {
+    // Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    $mail->isSMTP();                                            // Set mailer to use SMTP
+    $mail->Host       = 'localhost';                   // Specify main and backup SMTP servers
+    $mail->SMTPAuth   = false;                                   // Enable SMTP authentication
+    $mail->Username   = 'admin@michael-burbank.com';            // SMTP username
+    $mail->Password   = 'P0wer623!';                            // SMTP password
+    $mail->SMTPSecure = false;        // Enable TLS encryption, `tls` also accepted
+    $mail->Port       = 587;                                    // TCP port to connect to
 
+    // Recipients
+    $mail->setFrom($from_email, $from_name);
+    $mail->addAddress($receiving_email_address);                // Add a recipient
 
-$contact->smtp = [
-    'host' => 'localhost',
-    'username' => 'admin@michael-burbank.com',
-    'password' => 'P0wer623!',
-    'port' => '25',
-    'SMTP Authentication' => 'False',
-    'SSL' => 'False',
-    'send mail from' => 'admin@michael-burbank.com',
-    
-];
-$mail->SMTPOptions = [
-    'ssl' => [
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-    ]
-];
+    // Content
+    $mail->isHTML(true);                                        // Set email format to HTML
+    $mail->Subject = $subject;
+    $mail->Body    = nl2br($message);                           // Convert newlines to <br> tags for HTML
+    $mail->AltBody = strip_tags($message);                      // Plain text version for non-HTML mail clients
 
-$contact->add_message($_POST['name'], 'From');
-$contact->add_message($_POST['email'], 'Email');
-$contact->add_message($_POST['message'], 'Message', 10);
-
-echo $contact->send();
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
