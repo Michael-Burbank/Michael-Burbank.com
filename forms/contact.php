@@ -2,9 +2,14 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+use Dotenv\Dotenv;
 
-
+// require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
 require '../vendor/autoload.php';
+// Load environment variables from .env file
+$dotenv = Dotenv::createImmutable('/home/o56n6o9odjy1/public_html/forms/');
+$dotenv->load();
+
 $receiving_email_address = 'admin@michael-burbank.com';
 
 // Sanitize input data
@@ -24,12 +29,12 @@ $mail = new PHPMailer(true);
 
 try {
     // Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Set mailer to use SMTP
     $mail->Host       = 'localhost';                   // Specify main and backup SMTP servers
     $mail->SMTPAuth   = false;                                   // Enable SMTP authentication
     $mail->Username   = 'admin@michael-burbank.com';            // SMTP username
-    $mail->Password   = 'P0wer623!';                            // SMTP password
+    $mail->Password   = $_ENV['SMTP_PASSWORD'];                            // SMTP password
     $mail->SMTPSecure = false;        // Enable TLS encryption, `tls` also accepted
     $mail->Port       = 587;                                    // TCP port to connect to
 
@@ -46,5 +51,5 @@ try {
     $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo 'Message could not be sent. \n Please try again later.';
 }
