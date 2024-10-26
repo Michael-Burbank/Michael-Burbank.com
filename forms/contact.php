@@ -6,8 +6,8 @@ use Dotenv\Dotenv;
 
 // require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
 require '../vendor/autoload.php';
-// Load environment variables from .env file
-$dotenv = Dotenv::createImmutable('/home/o56n6o9odjy1/public_html/forms/');
+// Load environment variables from hashed_smtp_password.env file
+$dotenv = Dotenv::createImmutable(__DIR__, 'hashed_smtp_password.env');
 $dotenv->load();
 
 $receiving_email_address = 'admin@michael-burbank.com';
