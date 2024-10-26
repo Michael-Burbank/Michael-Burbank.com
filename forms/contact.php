@@ -49,7 +49,7 @@ try {
     $mail->AltBody = strip_tags($message);                      // Plain text version for non-HTML mail clients
 
     $mail->send();
-    echo 'Message has been sent';
+    echo '<div style="background-color: green; color: white; padding: 10px;">Message has been sent</div>';
 } catch (Exception $e) {
-    echo 'Message could not be sent. \n Please try again later.';
+    echo '<div style="background-color: red; color: white; padding: 10px;">Message could not be sent.</div>';
 }
