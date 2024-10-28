@@ -29,27 +29,47 @@ $mail = new PHPMailer(true);
 
 try {
     // Server settings
-    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
-    $mail->isSMTP();                                            // Set mailer to use SMTP
-    $mail->Host       = 'localhost';                   // Specify main and backup SMTP servers
-    $mail->SMTPAuth   = false;                                   // Enable SMTP authentication
-    $mail->Username   = 'admin@michael-burbank.com';            // SMTP username
-    $mail->Password   = $_ENV['SMTP_PASSWORD'];                            // SMTP password
-    $mail->SMTPSecure = false;        // Enable TLS encryption, `tls` also accepted
-    $mail->Port       = 587;                                    // TCP port to connect to
+
+    // Enable verbose debug output
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;      
+    
+    // Set mailer to use SMTP
+    $mail->isSMTP();             
+    
+    // Specify main and backup SMTP servers
+    $mail->Host       = 'localhost';     
+    // Enable SMTP authentication              
+    $mail->SMTPAuth   = false;                    
+    // SMTP username               
+    $mail->Username   = 'admin@michael-burbank.com';     
+    // SMTP password       
+    $mail->Password   = $_ENV['SMTP_PASSWORD'];     
+    // Enable TLS encryption, `tls` also accepted                       
+    $mail->SMTPSecure = false;        
+    // TCP port to connect to
+    $mail->Port       = 587;                                    
 
     // Recipients
+
+    // Add a recipient
     $mail->setFrom($from_email, $from_name);
-    $mail->addAddress($receiving_email_address);                // Add a recipient
+    $mail->addAddress($receiving_email_address);                
 
     // Content
-    $mail->isHTML(true);                                        // Set email format to HTML
-    $mail->Subject = $subject;
-    $mail->Body    = nl2br($message);                           // Convert newlines to <br> tags for HTML
-    $mail->AltBody = strip_tags($message);                      // Plain text version for non-HTML mail clients
 
+    // Set email format to HTML
+    $mail->isHTML(true);                                        
+    $mail->Subject = $subject;
+    // Convert newlines to <br> tags for HTML
+    $mail->Body    = nl2br($message);           
+    // Plain text version for non-HTML mail clients                
+    $mail->AltBody = strip_tags($message);                      
     $mail->send();
     echo '<div style="background-color: green; color: white; padding: 10px;">Message has been sent</div>';
+
 } catch (Exception $e) {
-    echo '<div style="background-color: red; color: white; padding: 10px;">Message could not be sent.</div>';
+    echo 'Message could not be sent. ';
 }
+// } catch (Exception $e) {
+//     echo 'Message could not be sent.';
+// }
