@@ -66,10 +66,6 @@ try {
     $mail->AltBody = strip_tags($message);                      
     $mail->send();
     echo '<div style="background-color: green; color: white; padding: 10px;">Message has been sent</div>';
-
 } catch (Exception $e) {
-    echo 'Message could not be sent. ';
+    echo '<div style="background-color: red; color: white; padding: 10px;">Message could not be sent.</div>';
 }
-// } catch (Exception $e) {
-//     echo 'Message could not be sent.';
-// }
