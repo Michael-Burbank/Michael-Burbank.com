@@ -39,7 +39,8 @@ try {
     // Server settings
 
     // Enable verbose debug output
-    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;      
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->SMTPDebug = false;
     
     // Set mailer to use SMTP
     $mail->isSMTP();             
@@ -55,11 +56,19 @@ try {
     // Enable TLS encryption, `tls` also accepted                       
     $mail->SMTPSecure = false;        
     // TCP port to connect to
-    $mail->Port       = 587;                                    
+    $mail->Port       = 25;                                    
 
     // Recipients
     $mail->setFrom($from_email, $from_name);
     $mail->addAddress($receiving_email_address);             // Add a recipient
+
+    // $mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //     'verify_peer' => false,
+    //     'verify_peer_name' => false,
+    //     'allow_self_signed' => true,
+    //     ),
+    // );
 
     // Content
     $mail->isHTML(true);                                     // Set email format to HTML
@@ -69,10 +78,8 @@ try {
 
     // Send the email and check for success
     if ($mail->send()) {
-        echo 'Message has been sent';
-    } else {
-        echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-    }
+        echo 'Message has been sent!!!';
+    } 
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ' + $mail->ErrorInfo;
 }
