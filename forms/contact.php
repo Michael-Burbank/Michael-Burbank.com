@@ -78,7 +78,7 @@ try {
 
     // Send the email and check for success
     if ($mail->send()) {
-        echo 'Message has been sent!!!';
+        echo '<div style="background-color: green; color: white; padding: 10px;">Message has been sent</div>';
     } 
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ' + $mail->ErrorInfo;

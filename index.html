@@ -50,12 +50,15 @@
 	<!-- Footer CSS File -->
 	<link href="assets/css/footer.css" rel="stylesheet" />
 
+	<!-- JQuery Script -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!-- Template Main JS File -->
 	<script src="assets/js/main.js" defer></script>
 </head>
 <!-- End of Head -->
 
 <!-- Start Body -->
+
 <body>
 
 	<!-- ======= Mobile nav toggle button ======= -->
@@ -142,7 +145,8 @@
 					<h2>About</h2>
 					<p class="text-md md:text-xl md:text-center font-semibold text-left text-wrap ">
 						As an Army veteran, <strong>Mike</strong> transitioned into software development. He pursued his
-						passion for technology and coding, earning first an Associates Degree in FullStack Web Development and then a Bachelor of Science degree in Software
+						passion for technology and coding, earning first an Associates Degree in FullStack Web
+						Development and then a Bachelor of Science degree in Software
 						Engineering. Now, as a proficient developer, he applies the same discipline and
 						problem-solving skills he honed in the military to create and deploy efficient and innovative
 						software solutions.
@@ -223,7 +227,8 @@
 					<h2>Resume</h2>
 					<p class="text-wrap">
 						Applying my passion for technology and problem-solving by creating innovative solutions for
-						various projects as a California Institute of Applied Science (CIAT) Alum.<br> My unique and diverse
+						various projects as a California Institute of Applied Science (CIAT) Alum.<br> My unique and
+						diverse
 						background in retail leadership and military service as an M1A2 Abrams Tank Crewman has nurtured
 						key skills such as team leadership, communication, and adaptability. <br><br>With a secret
 						clearance and expertise in FullStack Web Development, I have successfully developed multiple
@@ -245,7 +250,7 @@
 							<ul>
 								<li>
 									Developed FullStack applications
-									using JavaScript and PHP. 
+									using JavaScript and PHP.
 								</li>
 								<li>
 									Utilizing version control to successfully push commits to GitHub and SourceTree.
@@ -354,54 +359,58 @@
 				<div class="section-title">
 					<h2>Contact</h2>
 					<div class="col-lg-12 pt-10" data-aos="fade-left"></div>
-						<!-- <h3 class="text-center ">Get in touch with Mike!</h3> -->
-						<div>
-							<p class="text-wrap">
-								If you're looking to get in touch with Mike, whether you're a new visitor or have an official request, we encourage you to send an inquiry through the contact form. Mike is always eager to connect with new people and address any questions or concerns you may have. Whether it's a general inquiry or a specific request, your message will be given the utmost attention. Don't hesitate to reach out and start a conversation today!
-							</p>
+					<!-- <h3 class="text-center ">Get in touch with Mike!</h3> -->
+					<div>
+						<p class="text-wrap">
+							If you're looking to get in touch with Mike, whether you're a new visitor or have an
+							official request, we encourage you to send an inquiry through the contact form. Mike is
+							always eager to connect with new people and address any questions or concerns you may have.
+							Whether it's a general inquiry or a specific request, your message will be given the utmost
+							attention. Don't hesitate to reach out and start a conversation today!
+						</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-8 mt-2 mt-lg-0 pl-md-5 pr-md-5 pb-md-5 justify-content-center offset-md-2">
+				<form action="forms/contact.php" method="post" role="form" class="php-email-form col-md-8 p-3 p-md-4">
+					<div class="row">
+						<div class="form-group col-md-6 justify-content-start">
+							<label for="name">Name</label>
+							<input type="text" name="name" class="form-control" id="name" required />
+						</div>
+						<div class="form-group col-md-6">
+							<label for="name">Email</label>
+							<input type="email" class="form-control" name="email" id="email" required />
 						</div>
 					</div>
-					
-				</div>
-				<div class="col-lg-8 mt-2 mt-lg-0 pl-md-5 pr-md-5 pb-md-5 justify-content-center offset-md-2">
-					<form action="forms/contact.php" method="post" role="form" class="php-email-form col-md-8 p-3 p-md-4">
-						<div class="row">
-							<div class="form-group col-md-6 justify-content-start">
-								<label for="name">Name</label>
-								<input type="text" name="name" class="form-control" id="name" required />
-							</div>
-							<div class="form-group col-md-6">
-								<label for="name">Email</label>
-								<input type="email" class="form-control" name="email" id="email" required />
-							</div>
+					<div class="form-group">
+						<label for="name">Subject</label>
+						<input type="text" class="form-control" name="subject" id="subject" required />
+					</div>
+					<div class="form-group">
+						<label for="name">Message</label>
+						<textarea class="form-control col-md-8" name="message" rows="10" required></textarea>
+					</div>
+					<div class="my-3">
+						<div class="loading bg-black">Loading</div>
+						<div class="error-message"></div>
+						<div class="sent-message">
+							Your message has been sent. Thank you!
 						</div>
-						<div class="form-group">
-							<label for="name">Subject</label>
-							<input type="text" class="form-control" name="subject" id="subject" required />
-						</div>
-						<div class="form-group">
-							<label for="name">Message</label>
-							<textarea class="form-control col-md-8" name="message" rows="10" required></textarea>
-						</div>
-						<div class="my-3">
-							<div class="loading bg-black">Loading</div>
-							<div class="error-message"></div>
-							<div class="sent-message">
-								Your message has been sent. Thank you!
-							</div>
-						</div>
-						<div class="text-center">
-							<button type="submit">Send Message</button>
-						</div>
-					</form>
-				</div>
+					</div>
+					<div class="text-center">
+						<button type="submit">Send Message</button>
+					</div>
+				</form>
+			</div>
 			</div>
 			</div>
 		</section>
 		<!-- End Contact Section -->
 	</main>
 	<!-- End #main -->
-	
+
 	<!-- ======= Footer ======= -->
 	<!-- <footer id="footer">
 		<div class="container">
