@@ -46,17 +46,17 @@ try {
     $mail->isSMTP();             
     
     // Specify main and backup SMTP servers
-    $mail->Host       = 'localhost';     
+    $mail->Host       = $_ENV['HOSTNAME'];    
     // Enable SMTP authentication              
-    $mail->SMTPAuth   = false;                    
+    $mail->SMTPAuth   = $_ENV['SMTPAuth'];                    
     // SMTP username               
-    $mail->Username   = 'admin@michael-burbank.com';     
+    $mail->Username   = $_ENV['USERNAME'];     
     // SMTP password       
     $mail->Password   = $_ENV['SMTP_PASSWORD'];     
     // Enable TLS encryption, `tls` also accepted                       
-    $mail->SMTPSecure = false;        
+    $mail->SMTPSecure = $_ENV['SMTPSecure'];        
     // TCP port to connect to
-    $mail->Port       = 25;                                    
+    $mail->Port = $_ENV['Port'];                     
 
     // Recipients
     $mail->setFrom($from_email, $from_name);
