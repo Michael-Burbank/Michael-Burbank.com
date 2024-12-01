@@ -4,7 +4,6 @@
 <!-- Start Head -->
 <!-- TODO! - HTML -------------------->
 <!-- TODO: Rewrite Sections regarding iOS / FullStack Web. -->
-<!-- TODO: Create FavIcon for web -->
 <!-- TODO! - CSS --------------------->
 <!-- TODO: Change error color on contact.php to green??-->
 <!-- TODO! - JS ---------------------->
@@ -75,7 +74,7 @@
 	<header id="header">
 		<div class="d-flex flex-column">
 			<div class="profile">
-				<img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle" />
+				<img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle" />
 				<h1 class="text-light">
 					<a href="index.html">Michael Burbank</a>
 				</h1>
@@ -124,7 +123,7 @@
 
 	<!-- ======= Hero Section ======= -->
 	<section id="hero" class="d-flex justify-content-center align-items-center text-center">
-		<div class="hero-container" data-aos="fade-in">
+		<div class="hero-container offset-md-1" data-aos="fade-in">
 			<h1>Mike Burbank</h1>
 			<p>
 				Dedicated
@@ -150,30 +149,25 @@
 			<div class="container">
 				<div class="section-title">
 					<h2>About</h2>
-					<p class="text-md md:text-xl md:text-center font-semibold text-left text-wrap ">
-						As an Army veteran, <strong>Mike</strong> transitioned into software development. He pursued his
-						passion for technology and coding, earning first an Associates Degree in FullStack Web
-						Development and then a Bachelor of Science degree in Software
-						Engineering. Now, as a proficient developer, he applies the same discipline and
-						problem-solving skills he honed in the military to create and deploy efficient and innovative
-						software solutions.
+					<p class="text-md md:text-xl font-semibold text-left word-wrap">
+						As an Army veteran, <strong>Mike</strong> transitioned into software development, driven by his
+						passion for technology and coding. He earned an Associate's Degree in Full Stack Web
+						Development, followed by a Bachelor of Science degree in Software Engineering. Now, as a
+						proficient developer, he leverages the discipline and problem-solving skills acquired in the
+						military to create and deploy efficient and innovative software solutions.
 						<br><br>
-						When he's not coding, you can find him flying,
-						reading, spending time with his dog, skydiving, or
-						exploring the great outdoors through hiking
-						and shooting. <strong>Mike</strong> is also an avid music lover
-						and enjoys volunteering in his community. With a
-						commitment to personal growth and a love for
-						technology,
-						he is always looking for new and exciting challenges
-						to tackle in the world of software development.<br><br>
+						When he is not coding, Mike enjoys flying, reading, spending time with his dog, skydiving, and
+						exploring the great outdoors through hiking and shooting. He is also an avid music enthusiast
+						and actively volunteers in his community. With a strong commitment to personal growth and a deep
+						love for technology, Mike continually seeks new and exciting challenges in the field of software
+						development.
 					</p>
 				</div>
 				<div class="row">
-					<div class="flex items-center justify-content-center col-lg-3" data-aos="fade-left">
-						<img src="assets/img/profile-img.jpg" id="aboutImg" class="img-fluid rounded " alt="" />
-					</div>
-					<div class="col-lg-8 pt-10 content" data-aos="fade-left">
+					<!-- <div class="flex items-center justify-content-center col-lg-3 order-2" data-aos="fade-left">
+						<img src="assets/img/profile-img.png" id="aboutImg" class="img-fluid rounded" alt="" />
+					</div> -->
+					<div class="col-lg-12 pt-10 content order-1 offset-sm-0 offset-md-0" data-aos="fade-left">
 						<h3 class="text-center">FullStack Web</h3>
 						<p class="fst-italic text-center">
 							Deploying innovative solutions one Git commit a minute.
@@ -219,6 +213,8 @@
 							</div>
 						</div>
 
+
+						</div>
 					</div>
 				</div>
 			</div>
@@ -336,18 +332,22 @@
 							</p>
 							<ul>
 								<li>
-									Deployed web-based applications using both Front and Back-end tools such as HTML, CSS,
+									Deployed web-based applications using both Front and Back-end tools such as HTML,
+									CSS,
 									JavaScript, Python, PHP, and MySQL.
 								</li>
 								<li>
-									Utilized a strong foundation in computer science such as functions, Object-Orientated Programming (OOP), and
+									Utilized a strong foundation in computer science such as functions,
+									Object-Orientated Programming (OOP), and
 									Data Structures and Algorithms (DSA).
 								</li>
 								<li>
-									Compiled and debugged code using Microsoft Visual Studio, and managed version control for projects.
+									Compiled and debugged code using Microsoft Visual Studio, and managed version
+									control for projects.
 								</li>
 								<li>
-									Addressed real-world software development challenges by leveraging coding skills and tools.
+									Addressed real-world software development challenges by leveraging coding skills and
+									tools.
 								</li>
 
 							</ul>
@@ -366,36 +366,45 @@
 					<div class="col-lg-12 pt-10" data-aos="fade-left"></div>
 					<!-- <h3 class="text-center ">Get in touch with Mike!</h3> -->
 					<div>
-						<p class="text-wrap">
-							If you're looking to get in touch with Mike, whether you're a new visitor or have an
-							official request, we encourage you to send an inquiry through the contact form. Mike is
+						<h4 class="text-center pt-2">Looking to get in touch with me? </h4>
+						<p class="contact-msg text-wrap text-center col-8 justify-content-center offset-2 pt-4">
+							<!-- We encourage you to send an inquiry through the contact form. Mike is
 							always eager to connect with new people and address any questions or concerns you may have.
 							Whether it's a general inquiry or a specific request, your message will be given the utmost
-							attention. Don't hesitate to reach out and start a conversation today!
+							attention. Don't hesitate to reach out and start a conversation today! -->
+							Send me a message!
 						</p>
 					</div>
 				</div>
 
 			</div>
-			<div class="col-lg-8 mt-2 mt-lg-0 pl-md-5 pr-md-5 pb-md-5 justify-content-center offset-md-2">
-				<form id="contact-form" action="forms/contact.php" method="post" role="form" class="php-email-form col-md-8 p-3 p-md-4">
+			<!-- DIV CONTAINER -->
+			<div class="col-lg-10 mt-2 m-3 mt-lg-0 pl-md-5 pr-md-5 pb-md-5 justify-content-center">
+				<!-- FORM -->
+				<form id="contact-form" action="forms/contact.php" method="post" role="form"
+					class="php-email-form col-md-8 col-lg-10 col-xl-8 p-3 p-md-4 rounded-4 offset-sm-0 offset-md-0 offset-lg-2">
 					<div class="row">
-						<div class="form-group col-md-6 justify-content-start">
-							<label for="name">Name</label>
-							<input type="text" name="name" class="form-control" id="name" required />
+						<div class="form-group col-10 mx-auto col-md-6 justify-content-start ">
+							<label for="name"></label>
+							<input type="text" name="name" placeholder="Name"
+								class="form-control placeholder-color rounded-4" id="name" required />
 						</div>
-						<div class="form-group col-md-6">
-							<label for="name">Email</label>
-							<input type="email" class="form-control" name="email" id="email" required />
+						<div class="form-group col-10 mx-auto col-md-6 justify-content-start">
+							<label for="name"></label>
+							<input type="email" placeholder="Email" class="form-control placeholder-color rounded-4"
+								name="email" id="email" required />
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="name">Subject</label>
-						<input type="text" class="form-control" name="subject" id="subject" required />
+					<div class="form-group col-10 mx-auto col-md-12 col-lg-12">
+						<label for="name"></label>
+						<input type="text" placeholder="Subject"
+							class="form-control placeholder-color rounded-4 justify-content-start" name="subject"
+							id="subject" required />
 					</div>
-					<div class="form-group">
-						<label for="name">Message</label>
-						<textarea class="form-control col-md-8" name="message" rows="10" required></textarea>
+					<div class=" col-10 mx-auto col-md-12 col-lg-12">
+						<label for="name"></label>
+						<textarea class="form-control col-md-8 placeholder-color rounded-4" name="message" rows="10"
+							placeholder="Message..." required></textarea>
 					</div>
 					<div class="my-3">
 						<div class="loading bg-black">Loading</div>
@@ -405,7 +414,7 @@
 						</div>
 					</div>
 					<div class="text-center">
-						<button type="submit">Send Message</button>
+						<button type="submit" class=" rounded-4 hover-bg-#fff">Send Message</button>
 					</div>
 				</form>
 			</div>
@@ -441,4 +450,5 @@
 	<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 	<script src="assets/vendor/php-email-form/validate.js"></script>
 </body>
+
 </html>

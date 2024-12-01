@@ -2,7 +2,8 @@
 # Contact
 --------------------------------------------------------------*/
 .contact {
-	padding-bottom: 20px;
+	padding-bottom: 5px;
+	/* padding-left: 10px; */
 	/* font-style:italic; */
 	background: linear-gradient(170deg, #00000085, #2e0443);
 	width: 100%;
@@ -13,7 +14,23 @@
 	font-size: 26px;
 	color: #490dab;
 }
-
+#contact h4{
+	line-height: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-family: "Poppins", sans-serif;
+	color: #050d18;
+	/* margin-bottom: 10px; */
+}
+#contact .contact-msg{
+	line-height: 30px;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-family: "Poppins", sans-serif;
+	color: #050d18;
+}
 .contact .container .section-title p{
 	color: black;
 }
@@ -22,7 +39,7 @@
 	/* padding: 30px; */
 	background: #fff;
 	width: 100%;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 0 24px 0 rgba(96, 16, 16, 0.12);
 }
 
 .contact label{
@@ -33,8 +50,12 @@
 	
 }
 .contact input, .contact .form-control {
-	background: #040b1451;
+	background: #d0d0d151;
 	color: #fff;
+}
+
+.placeholder-color::placeholder {
+    color: #fff; 
 }
 .contact .php-email-form {
 	/* width: 40%; */
@@ -99,12 +120,12 @@
 }
 
 .contact .php-email-form .form-group {
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 
-.contact .php-email-form label {
+/* .contact .php-email-form label {
 	padding-bottom: 8px;
-}
+} */
 
 .contact .php-email-form input,
 .contact .php-email-form textarea {
@@ -114,11 +135,11 @@
 }
 
 .contact .php-email-form input {
-	height: 44px;
+	height: 40px;
 }
 
 .contact .php-email-form textarea {
-	padding: 10px 15px;
+	padding: 10px 10px;
 }
 
 .contact .php-email-form button[type="submit"] {

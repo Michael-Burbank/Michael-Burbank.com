@@ -1,10 +1,10 @@
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-#aboutImg {
+/* #aboutImg {
 	width: 60%;
 	max-width: 70%;
-}
+} */
 
 .about .content h3 {
 	font-weight: 700;
@@ -16,11 +16,14 @@
 
 .about .section-title p{
 	color: black;
+	margin-left: 8px;
+	margin-right: 8px;
+	text-align: left;
 }
 
 .about .content ul {
 	list-style: none;
-	padding: 0;
+	padding-bottom: 10px;
 }
 
 .about .content ul li {

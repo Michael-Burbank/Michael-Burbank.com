@@ -10,11 +10,16 @@
 }
 .resume .container .section-title p{
 	color: black;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: left;
 }
 
 .resume .resume-item {
-	padding: 0 0 20px 20px;
+	padding: 0 0 15px 15px;
 	margin-top: -2px;
+	margin-left: 5px;
+	margin-right: 5px;
 	border-left: 2px solid #490dab;
 	position: relative;
 }
