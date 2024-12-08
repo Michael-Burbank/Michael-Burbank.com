@@ -56,7 +56,7 @@ try {
     // Enable TLS encryption, `tls` also accepted                       
     $mail->SMTPSecure = $_ENV['SMTPSecure'];        
     // TCP port to connect to
-    $mail->Port = $_ENV['Port'];         
+    $mail->Port = 25;         
 
     // Recipients
     $mail->setFrom($from_email, $from_name);
