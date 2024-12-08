@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use Dotenv\Dotenv;
 
-// require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
+require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
 require '../vendor/autoload.php';
 // Load environment variables from hashed_smtp_password.env file
 try {
@@ -46,15 +46,15 @@ try {
     $mail->isSMTP();             
     
     // Specify main and backup SMTP servers
-    $mail->Host       = $_ENV['HOSTNAME'];    
+    $mail->Host       = 'localhost';    
     // Enable SMTP authentication              
-    $mail->SMTPAuth   = $_ENV['SMTPAuth'];                    
+    $mail->SMTPAuth   = false;                    
     // SMTP username               
-    $mail->Username   = $_ENV['USERNAME'];     
+    $mail->Username   = 'admin@michael-burbank.com';     
     // SMTP password       
     $mail->Password   = $_ENV['SMTP_PASSWORD'];     
     // Enable TLS encryption, `tls` also accepted                       
-    $mail->SMTPSecure = $_ENV['SMTPSecure'];        
+    $mail->SMTPSecure = false;   
     // TCP port to connect to
     $mail->Port = 25;         
 
