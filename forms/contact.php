@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use Dotenv\Dotenv;
 
-require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
+// require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
 require '../vendor/autoload.php';
 // Load environment variables from hashed_smtp_password.env file
 try {
