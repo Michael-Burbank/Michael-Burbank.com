@@ -4,7 +4,6 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use Dotenv\Dotenv;
 
-// require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
 require '../vendor/autoload.php';
 // Load environment variables from hashed_smtp_password.env file
 try {
@@ -14,7 +13,7 @@ $dotenv->load();
     // Handle the exception or log it
     error_log('Could not load .env file: ' . $e->getMessage());
 }
-$receiving_email_address = 'admin@michael-burbank.com';
+$receiving_email_address = $_ENV['RECEIVING_EMAIL_ADDRESS'];
 
 // Sanitize and validate input data
 $from_name = isset($_POST['name']) ? filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
