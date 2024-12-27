@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ef1679532adde35997388c722d7b42e54795336d',
+        'reference' => 'f3f9c78cff766bc69b1e5ccde35f552b02324c2a',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ef1679532adde35997388c722d7b42e54795336d',
+            'reference' => 'f3f9c78cff766bc69b1e5ccde35f552b02324c2a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -28,7 +28,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'egulias/email-validator' => array(
+        'egulias/email-validator' => array( 
             'pretty_version' => '4.0.2',
             'version' => '4.0.2.0',
             'reference' => 'ebaaf5be6c0286928352e054f2d5125608e5405e',

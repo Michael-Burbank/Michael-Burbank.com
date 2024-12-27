@@ -1,19 +1,21 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use Dotenv\Dotenv;
 
+// require '/home/o56n6o9odjy1/public_html/vendor/autoload.php';
 require '../vendor/autoload.php';
 // Load environment variables from hashed_smtp_password.env file
 try {
     $dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+    $dotenv->load();
 } catch (Exception $e) {
     // Handle the exception or log it
     error_log('Could not load .env file: ' . $e->getMessage());
 }
-$receiving_email_address = $_ENV['RECEIVING_EMAIL_ADDRESS'];
+$receiving_email_address = 'admin@michael-burbank.com';
 
 // Sanitize and validate input data
 $from_name = isset($_POST['name']) ? filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
@@ -40,22 +42,22 @@ try {
     // Enable verbose debug output
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->SMTPDebug = false;
-    
+
     // Set mailer to use SMTP
-    $mail->isSMTP();             
-    
+    $mail->isSMTP();
+
     // Specify main and backup SMTP servers
-    $mail->Host       = $_ENV['HOSTNAME'];    
+    $mail->Host       = $_ENV['HOSTNAME'];
     // Enable SMTP authentication              
-    $mail->SMTPAuth   = $_ENV['SMTP_AUTH'];                    
+    $mail->SMTPAuth   = $_ENV['SMTPAuth'];
     // SMTP username               
-    $mail->Username   = $_ENV['USERNAME'];     
+    $mail->Username   = $_ENV['USERNAME'];
     // SMTP password       
-    $mail->Password   = $_ENV['SMTP_PASSWORD'];     
+    $mail->Password   = $_ENV['SMTP_PASSWORD'];
     // Enable TLS encryption, `tls` also accepted                       
-    $mail->SMTPSecure = $_ENV['SMTPSecure'];  
+    $mail->SMTPSecure = $_ENV['SMTPSecure'];
     // TCP port to connect to
-    $mail->Port = $_ENV['Port'];         
+    $mail->Port = $_ENV['Port'];
 
     // Recipients
     $mail->setFrom($from_email, $from_name);
@@ -78,7 +80,9 @@ try {
     // Send the email and check for success
     if ($mail->send()) {
         echo '<div style="background-color: green; color: white; padding: 10px;">Message has been sent</div>';
-    } 
+    }
 } catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ' + $mail->ErrorInfo;
+    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
 }
+
+?>
