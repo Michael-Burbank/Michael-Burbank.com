@@ -49,6 +49,9 @@
 	letter-spacing: 1px;
 	border-bottom: 3px solid #7b31f2;
 }
+/* #hero p span span{
+	border-bottom: 3px solid #7b31f2;
+} */
 
 @media (min-width: 1024px) {
 	#hero {
