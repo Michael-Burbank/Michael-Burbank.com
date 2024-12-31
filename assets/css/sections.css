@@ -7,6 +7,10 @@ section {
 	/* background: linear-gradient(170deg, #00000085, #2e0443a3); */
 	background: linear-gradient(170deg, #0000009c, #2e0443a3);
 }
+#contact {
+	/* padding-top: 250px; */
+	padding-bottom: 50px;
+}
 
 .section-title {
 	padding-bottom: 30px;
