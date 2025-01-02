@@ -2,7 +2,7 @@
 # Contact
 --------------------------------------------------------------*/
 .contact {
-	padding-bottom: 5px;
+	padding-bottom: 5px !important;
 	/* padding-left: 10px; */
 	/* font-style:italic; */
 	background: linear-gradient(170deg, #00000085, #2e0443);
