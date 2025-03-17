@@ -23,7 +23,7 @@
 	border: 8px solid #4104a3;
 }
 
-#header .profile h1 {
+#header .profile h2 {
 	font-size: 24px;
 	margin: 0;
 	padding: 0;
@@ -34,8 +34,8 @@
 	letter-spacing: 0.1em;
 }
 
-#header .profile h1 a,
-#header .profile h1 a:hover {
+#header .profile h2 a,
+#header .profile h2 a:hover {
 	color: #fff;
 	text-decoration: none;
 }
