@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Home Page -->
+    <url>
+        <loc>https://www.michael-burbank.com/</loc>
+        <lastmod>2025-03-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About Section -->
+    <url>
+        <loc>https://www.michael-burbank.com/#about</loc>
+        <lastmod>2025-03-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Resume Section -->
+    <url>
+        <loc>https://www.michael-burbank.com/#resume</loc>
+        <lastmod>2025-03-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact Section -->
+    <url>
+        <loc>https://www.michael-burbank.com/#contact</loc>
+        <lastmod>2025-03-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Additional Pages (if any) -->
+    <!-- Add more URLs here if your site has additional pages -->
+</urlset>

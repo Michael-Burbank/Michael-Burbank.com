@@ -1,0 +1,21 @@
+# robots.txt for Michael-Burbank.com
+
+# Allow all web crawlers to access the main site
+User-agent: *
+Disallow:
+
+# Block crawlers from accessing sensitive or unnecessary directories
+Disallow: /forms/
+Disallow: /assets/vendor/
+Disallow: /tmp/
+
+# Block crawlers from accessing specific file types
+Disallow: /*.env$
+Disallow: /*.log$
+
+# Allow Googlebot full access
+User-agent: Googlebot
+Disallow:
+
+# Specify the location of the sitemap
+Sitemap: https://www.michael-burbank.com/sitemap.xml
