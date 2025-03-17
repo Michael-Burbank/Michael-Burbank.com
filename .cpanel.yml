@@ -1,0 +1,26 @@
+# ---
+# deployment:
+#   tasks:
+#     - export DEPLOY_PATH=/home/knrk862ebalm/public_html
+#     - /bin/cp index.html $DEPLOY_PATH
+#     - /bin/cp style.css $DEPLOY_PATH
+#     - echo "Deployment completed successfully."
+
+---
+deployment:
+  tasks:
+    # Define the deployment path
+    - export DEPLOY_PATH=/home/knrk862ebalm/public_html
+
+    # Create the deployment directory if it doesn't exist
+    - mkdir -p $DEPLOY_PATH
+
+    # Use rsync to copy files, excluding sensitive files and directories
+    - rsync -avz --exclude-from='.gitignore' --exclude='.git/' --exclude='.env' --exclude='*.log' ./ $DEPLOY_PATH
+
+    # Set proper permissions for the deployed files
+    - find $DEPLOY_PATH -type d -exec chmod 755 {} \;
+    - find $DEPLOY_PATH -type f -exec chmod 644 {} \;
+
+    # Output a success message
+    - echo "Deployment completed successfully to $DEPLOY_PATH."
