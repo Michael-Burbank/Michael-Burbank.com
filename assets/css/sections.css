@@ -7,7 +7,7 @@ section {
 	/* background: linear-gradient(170deg, #00000085, #2e0443a3); */
 	/* background: linear-gradient(170deg, #0000009c, #2e0443a3); */
 	/* background-color:rgb(154, 154, 154); */
-	background-color:#dee0e197;
+	background-color:#babbbc97;
 	/* background-color:#c7d1d5; */
 }
 
@@ -20,7 +20,6 @@ section#about{
 section#resume{
 	border-bottom: 4px solid #000000;
 	border-right: 4px solid #000000;
-	background-color: #dee0e197;
 }
 section#contact{
 	/* background-color:rgba(91, 91, 91, 0.295); */

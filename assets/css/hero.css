@@ -10,13 +10,11 @@
 	font-style:italic;
 	border-bottom: 4px solid #000000;
 	border-right: 4px solid #000000;
-	/* background: linear-gradient(170deg, #000000, #2e0443);*/
-	/* background-color: #5f5f5f; */
 }
 
 #hero:before {
 	/* content: ""; */
-	background-color: #5f5f5f;
+	/* background-color:#babbbc97; */
 	position: absolute;
 	bottom: 0;
 	top: 0;
