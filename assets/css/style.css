@@ -2,9 +2,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-*{
-	font-family: "Poppins", sans-serif;
-}
+
 /* Style the vertical scrollbar */
 ::-webkit-scrollbar {
     width: 14px; /* Width of the scrollbar */
@@ -22,6 +20,7 @@
     border-radius: 10px; /* Rounded corners */
 	border: 2px solid rgb(255, 255, 255);
 }
+/* Style the vertical scrollbar on hover */
 ::-webkit-scrollbar:hover {
     width: 15px; /* Width of the scrollbar */
 }
