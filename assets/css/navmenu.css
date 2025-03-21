@@ -14,11 +14,10 @@
 	padding: 0;
 	list-style: none;
 }
-
 .nav-menu > ul > li {
 	position: relative;
 	white-space: nowrap;
-	padding: 20px 0 0 0;
+	padding: 30px 0 0 0;
 }
 
 .nav-menu a,
@@ -52,7 +51,7 @@
 .nav-menu .active i,
 .nav-menu .active:focus i,
 .nav-menu li:hover > a i {
-	color: #7b31f2;
+	color: #f0f0f0;
 	
 	
 }
@@ -67,7 +66,7 @@
 	font-size: 24px;
 	transition: all 0.4s;
 	outline: none !important;
-	background: #4104a3;
+	background: #000000;
 	color: #f7f7f7;
 	width: 40px;
 	height: 40px;
@@ -80,7 +79,11 @@
 	cursor: pointer;
 }
 .mobile-nav-toggle:hover{
-	background: #7b31f2;
+	border: 1px solid black;
+	border-radius: 50px;
+	background: #f0f0f0;
+	color: #000000;
+	/* background-color: #f0f0f0; */
 }
 
 .mobile-nav-active {

@@ -11,8 +11,11 @@
 	z-index: 9997;
 	transition: all 0.5s;
 	padding: 0 15px;
-	background-color: #040b14;
+	/* background-color: #040b14; */
+	/* background-color: #5f5f5f; */
+	background-color:rgb(49, 49, 49);
 	overflow-y: auto;
+	border-right: 4px solid #000000;
 }
 
 #header .profile img {
@@ -20,7 +23,8 @@
 	padding: 10px auto;
 	display: block;
 	width: 150px;
-	border: 8px solid #4104a3;
+	/* border: 8px solid #4104a3; */
+	border: 8px solid #000000;
 }
 
 #header .profile h2 {
@@ -57,12 +61,12 @@
 	width: 36px;
 	height: 36px;
 	transition: 0.3s;
-	border: 1px solid #7b31f2;
+	border: 1px solid #000000;
 }
 
 #header .profile .social-links a:hover {
-	background: #7b31f2;
-	color: #fff;
+	background: #f0f0f0;
+	color: #000000;
 	text-decoration: none;
 }
 

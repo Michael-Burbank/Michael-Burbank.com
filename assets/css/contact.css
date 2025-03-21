@@ -2,27 +2,29 @@
 # Contact
 --------------------------------------------------------------*/
 .contact {
-	padding-bottom: 5px !important;
+	padding-bottom: 70px !important;
 	/* padding-left: 10px; */
 	/* font-style:italic; */
-	background: linear-gradient(170deg, #00000085, #2e0443);
+	/* background: linear-gradient(170deg, #00000085, #2e0443); */
 	width: 100%;
 }
 
-#contact h3 {
+/* #contact h3 {
 	font-weight: 700;
 	font-size: 26px;
 	color: #490dab;
-}
-#contact h4{
+} */
+
+/* #contact h4{
 	line-height: 10px;
 	font-size: 18px;
 	font-weight: 600;
 	text-transform: uppercase;
 	font-family: "Poppins", sans-serif;
 	color: #050d18;
-	/* margin-bottom: 10px; */
-}
+	/* margin-bottom: 10px; 
+} */
+
 #contact .contact-msg{
 	line-height: 30px;
 	font-size: 18px;

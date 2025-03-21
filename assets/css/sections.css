@@ -5,7 +5,23 @@ section {
 	padding-top: 60px;
 	overflow: hidden;
 	/* background: linear-gradient(170deg, #00000085, #2e0443a3); */
-	background: linear-gradient(170deg, #0000009c, #2e0443a3);
+	/* background: linear-gradient(170deg, #0000009c, #2e0443a3); */
+	background-color:rgb(154, 154, 154);
+}
+
+section#about{
+	/* background-color:rgb(91, 91, 91); */
+	background-color:rgba(91, 91, 91, 0.295);
+	border-bottom: 4px solid #000000;
+	border-right: 4px solid #000000;
+}
+section#resume{
+	border-bottom: 4px solid #000000;
+	border-right: 4px solid #000000;
+}
+section#contact{
+	background-color:rgba(91, 91, 91, 0.295);
+	border-right: 4px solid #000000;
 }
 #contact {
 	/* padding-top: 250px; */
@@ -22,7 +38,7 @@ section {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	position: relative;
-	color: #561fae
+	color: #000000
 }
 
 .section-title h2::after {
@@ -30,9 +46,9 @@ section {
 	content: "";
 	position: absolute;
 	display: block;
-	width: 50px;
+	width: 100px;
 	height: 3px;
-	background: #490dab;
+	background: #000000;
 	bottom: 0;
 	left: 0;
 }
